@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>Week 1</title>
+</head>
+
+<body>
+    <h1>Week 1 Notes and Exercises</h1>
+    <h3>Notes from Syllabus:</h3>
+    <ul>
+        <li>This class has an unusual course design. It is designed to use repetition to help you learn efficiently in an environment where the instructor is your mentor rather than a lecturer.</li>
+        <li>Don't have group projects, the group is to support my learning.</li>
+        <li>Learning Model: </li>
+        <ol>
+            <li>Prepare: prepare for the team meetings, explore and learn.</li>
+            <li>Teach One Another: Learn through the strengths of others</li>
+            <li>Ponder/Prove: Ponder on what and how I'm learning. Prove my knowledge with examples to understand how things work.</li>
+        </ol>
+    </ul>
+    <h3>Notes from Doing Stuff with Web Things:</h3>
+    <ul>
+        <li>Section tag requires the full width of the page, we can use this tag to take advantage and help place the
+            items on the page. I would use this tag before but didn't have this idea, this concept helped me see a
+            useful way to use the section besides just separating and organizing the code.
+        </li>
+        <li>
+            Get users input use the “value” word (input and textareas)<br>
+            - Example: var storyName = document.getElementById(“name_input”).value
+        </li>
+        <li>Show something for the user use “innerHTML” (sections)<br>
+            - Example: document.getElementById(“story_display”).innerHTML = storyHTML
+        </li>
+
+        <li>
+            JavaScript's local storage uses what techies call 'key-value pairs.'
+        </li>
+        <li>
+            In the story editor code, for example, the story name is the key and the story is the value<br>
+            - localStorage.setItem(storyName, storyHTML)
+        </li>
+        <li>
+            Make statements when working with “if's” helps to decide what to use, and “else if” or just “else”
+        </li>
+        <li>
+            The function parseInt gets the number text and returns it as an integer or returns NaN (Not a Number) if the text is not a number.
+        </li>
+        <li>
+            Box shadow property has 5 things you can send to it. <br>
+            - Example: box-shadow: 0px 0px 5px #666666 inset; <br>
+            The first 2 values are required the rest is optional <br>
+            Description of each part:
+        </li>
+        <ol>
+            <li>The first is how far the shadow is shifted horizontally</li>
+            <li>
+                The second is how far the shadow is shifted vertically 
+            </li>
+            <li>The third value is how many pixels will be used to blur out the shadow</li>
+            <li>The fourth value is the shadow color (before it is blurred)</li>
+            <li>The fifth “inset” means that the shadow will be inside the box (to be outside of the box we don’t put anything)</li>
+        </ol>
+        <li>JSON is used to convert anything to text, it converts in a way that the text can be converted back to the original thing. </li>
+        <li>
+            JSON.parse: get the string representing an array and converts it to a JavaScript array
+        </li>
+        <li>
+            JSON.stringify: converts stuff into a string
+        </li>
+        <li>
+            resize: none; -- don't allow the user to resize the textarea
+            overflow: scroll; -- allow scroll the text, for big notes
+        </li>
+        <li>
+            Multiply the text the user enters by the number 1, JavaScript will convert the text to a number
+        </li>
+        
+    </ul>
+
+    <h3>Exercises/examples from the book:</h3>
+    <ul class="exercises">
+        <li><a href="story_editor.html">Story Editor</a></li>
+        <li><a href="even_or_odd.html">Even or Odd Number</a></li>
+        <li><a href="group_loop.html">Group Lopp</a></li>
+        <li><a href="note_it.html">Notes List</a></li>
+        <li><a href="customer.html">Customer</a></li>
+    </ul>
+
+    <h3>Notes Master Mobile UX:</h3>
+
+    <p>Design mobile first gives a better experience for the user, it's simpler and more beatuful. It's easier to grow the website and maintain it.
+    Start small and scale up.
+    Mobile first helps concentrate in the content.
+    Mobile is not a fad.</p>
+    
+    <ul>
+        <li>Be There. To help move someone along their journey, and deepen their loyalty</li>
+        <li>Be Useful. Provide what the users want</li>
+        <li>Be Quick. A lot of steps makes the user frustrated.</li>
+        <li>Reachability Matters.</li> 
+        <li>Speed Matters.</li>
+    </ul>
+
+    <p>Making things accessible for mobile users reduces frustration. Forms need to contain the necessary information, and be simple and large enough for mobile. Think outside the box when it comes to advertisements is important, the users came to your website for your content, so make it the priority in the page.</p></p>
+    
+    <h3><a href="..\index.html"><h3>&lt- Return</h3></a>
+</body>
+
+</html>
