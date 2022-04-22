@@ -95,10 +95,18 @@
             border-radius: 5px;
             box-shadow: 0px 0px 5px #666666;
         }
+
+        .return-link {
+            color: black;
+        }
+
+        .return-link:hover {
+            color: darkcyan;
+        }
     </style>
 </head>
 
-<body onload="showAllCustomers()"">
+<body onload="showAllCustomers()">
     <section id=" customer_entry_area">
     <h1>Our Clothing Customers</h1>
     <input id="name_input" placeholder="Name"></input>
@@ -108,4 +116,8 @@
     <img src="add_customer.png" onclick="addAndSaveCustomer()"></img>
     </section>
     <section id="all_customers_display"></section>
+
+    <br><a class="return-link" href="index.html">
+        <h3>Return</h3>
+    </a>
 </body
