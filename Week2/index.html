@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Week 2</title>
+</head>
+
+<body>
+    <h1>Week 2 Notes and Team Activity</h1>
+
+    <h3>Team Activity:</h3>
+    <ul class="team_activity">
+        <li><a href="team_activity.html">Team Activity: Team 7</a></li>
+    </ul>
+
+    <h3>Notes from Chapter 2: Programing basics</h3>
+    <ul>
+        <li>It's important to comment on the code, it makes it easier for anybody to read and understand what's
+            happening</li>
+        <li>Types of comments in JavaScript: </li>
+        <ol>
+            <li>Single line comments: <br> // this is a short comment</li>
+            <li>Multi-line comments: <br>
+                /* This is a longer comment <br>
+                anything here will be ignored <br>
+                This is a useful place to put notes <br>
+                */
+            </li>
+        </ol>
+        <li>The Syntax of JavaScript is known as C-style syntax because it's similar to the C programming language.</li>
+        <li>It's considered best practice to write each statement in a new line terminated by a semi-colon </li>
+        <li>Primitive Data Types: </li>
+        <ul>
+            <li>String</li>
+            <li>Symbol</li>
+            <li>Number</li>
+            <li>Boolean</li>
+            <li>Undefined</li>
+            <li>Null</li>
+        </ul>
+        <li>Any value that isn't one of the primitive data types is an object</li>
+        <li>
+            <h4>Variables</h4>
+        </li>
+        <li>Variables are used to refer to a value stored in memory</li>
+        <li>They need to be declared before theya are used. The keywords 'const' and 'let' are used to declare variables
+        </li>
+        <li>The keyword 'const' is used to assign variables that will not be reassigned to another value</li>
+        <li>The keyword 'let' is used if the variable might be reassigned later in the program.</li>
+        <li>If a variable is assigned to a primitive data type and declared with the 'const' keyword, we can't change
+            the value after, it will result in an error, but if we declare a non-primitive data type with this keyword,
+            like an object, then we can change it. The 'const' doesn't make it immutable. This means the underlying data
+            inside the object can change</li>
+        <li>Scope refers to where a constant or variable is accessible by the program. </li>
+        <li>Variables are block scoped, which means that they only exists inside the block they are declared in, by
+            using 'const' and 'let' keywords</li>
+        <li>Global Scope: variables declared outside of a block. They are accessible everywhere in the program.</li>
+        <li>Local Scope: variables declared inside of a block. This means that variables defined using 'const' and 'let'
+            will only be accessible inside the block.</li>
+        <li>If 'const' and 'let' are not used, the variable will have global scope and be available outside the block
+        </li>
+        <li>Constant and variable names are case sensitive</li>
+        <li>When you assign a primitive value to a variable, any changes you make are made directly to that value, but
+            if you assign a non-primitive value to a variable, then this is done by reference, so any changes that are
+            subsequently made will affect all references to that object
+            <br>- Examples:<br>
+            Direct Assignment:<br>
+            const a = 1;<br>
+            let b = a; // a = 1, b = 1<br>
+            b = 2; // a = 1, b = 2<br>
+            <br>
+            Assignment By Reference: <br>
+            const c = { value: 1 };<br>
+            let d = c; // c.value = 1, d.value = 1<br>
+            d.value = 2; // c.value = 2, d.value = 2<br>
+        </li>
+        <li>
+            <h4>Strings</h4>
+        </li>
+        <li>A string is a collection of characters, letters and symbols.</li>
+        <li>Primitive data types and objects have properties and methods. Properties are information about the object or
+            value. Methods
+            perform an action on the object or value.
+        </li>
+        <li>To access a property of a string we use the dot notation.<br>
+            Example: <br>
+            const name = 'Alexa'; // declare and assign a variable<br>
+            &lt&lt 'Alexa'<br>
+            name.length; // retrieve the name variable's length property<br>
+            &lt&lt 5<br>
+        </li>
+        <li>An alternative notation is the square brackets<br>
+            Example: <br>
+            name['length']; // note the property name is in quote marks
+        </li>
+        <li> To call a method, we use the dot operator followed by the name of the method, followed by parentheses <br>
+            Example: <br>
+            name.toUpperCase();
+        </li>
+        <li>Template Literals are a special time of string. It uses the ` character to delimitade the string.</li>
+        <li>
+            <h4>Numbers</h4>
+        </li>
+        <li>Numbers can be integers or floating point numbers (decimals)</li>
+        <li>NaN is an error value that is short for "Not a Number". It's used when the result of an attempted opetarion
+            is not numerical. <br>
+            Example: <br>
+            'hello' * 5; <br>
+            &lt&lt NaN
+        </li>
+        <li>We can convert strings to numbers:<br>
+            Use the Number method: Number('23');<br>
+            Multiply a numerical string by 1<br>
+            Add the + operator in front of the numerical string <br>
+            parseInt() function<br>
+            parseFloat() function
+        </li>
+        <li>We can convert numbers to strings:
+            Use the String function: String(3); -- Best way to convert it<br>
+            By adding an empty string to the number: 3 +' '; <br>
+            Use the toString() method. This can also be used to change the base of the number: 10..toString(2);
+        </li>
+        <li>
+            <h4>Undefined and Null</h4>
+        </li>
+        <li>Undefined is the value given to variables that have not been assigned a value. It can also occur if an
+            object's property doesn't exist or a function has a missing parameter. </li>
+        <li>Null means 'no value'.</li>
+        <li>Undefined and null besides looking similar, behave slightly differently. <br>
+            Example:<br>
+            10 + null; // null behaves like zero<br>
+            &lt&lt 10<br>
+
+            10 + undefined; // undefined is not a number<br>
+            &lt&lt NaN
+        </li>
+        <li>
+            <h4>Logical Operator</h4>
+        </li>
+        <li>A logical operator can be used with any primitive value or object. The results are based in true or false
+        </li>
+        <li>Logical Operators:</li>
+        <ul>
+            <li>! (NOT)</li>
+            <li>&& (AND)</li>
+            <li>|| (OR)</li>
+        </ul>
+        <li>A prompt dialog allows the user to type a value, which can be stored in a variable</li>
+    </ul>
+
+    <h3>Notes from Ch3: Arrays, Logic, and Loops</h3>
+    <ul>
+        <li>
+            <h4>Arrays</h4>
+        </li>
+        <li>An array is an ordered list of values. </li>
+        <li>It's possible to use different types of items inside an array.<br>
+            Example: const mixedArray = [ null, 1, [], 'two', true ];
+        </li>
+        <li>The delete operator removes an item from an array, but the space that the deleted item occupied still there
+            and contains a value
+            of undefined. The array still with the same size.
+        </li>
+        <li>Methods:</li>
+        <ul>
+            <li>pop(): remove the last item from an array</li>
+            <li>push(): appends a new value to the end of the array</li>
+            <li>shift(): removes the first item in the array</li>
+            <li>unshift(): appends a new item to the beginning of the array</li>
+            <li>concat(): merge an array with one or more arrays</li>
+            <li>join(): turn the array into a string that comprises all the items in the array, separated by commas</li>
+            <li>slice(): creates a subarray</li>
+            <li>splice(): removes items from an array then inserts new items in their place, but it can also be used to
+                insert values into an array at a specific index without removing any items</li>
+            <li>reverse(): reverse the order of an array</li>
+            <li>sort(): sort the order of an array</li>
+            <li>indexOf(): find the first occurrence of a value in an array</li>
+            <li>includes(): returns a boolean value depending on whether the array contains a particular element or not
+            </li>
+        </ul>
+        <li>
+            <h4>Sets</h4>
+        </li>
+        <li>A set is a data structure that represents a collection of unique values, so it cannot include any duplicate
+            values.</li>
+        <li>Sets do not have index notation for inspecting individual entries</li>
+        <li>We can convert a set into an array:<br>
+            Example:<br>
+            We have this set: <br>
+            const shoppingSet = new Set().add('Apples').add('Bananas').add('Beans');<br>
+
+            shoppingSet<br>
+            &lt&lt Set { 'Apples', 'Bananas', 'Beans' }<br>
+
+            To convert into an array we have two ways, the first is by placing the set, with the spread operator inside
+            an array literal:<br>
+            const shoppingArray = [...shoppingSet]<br>
+
+            shoppingArray<br>
+            &lt&lt [ 'Apples', 'Bananas', 'Beans' ]<br>
+            The other way is using the Array.from() method: <br>
+            const shoppingSet = new Set().add('Apples').add('Bananas').add('Beans');<br>
+
+            const shoppingArray = Array.from(shoppingSet);<br>
+        </li>
+
+        <li>
+            <h4>Maps</h4>
+        </li>
+        <li>List of key and value pairs, and are similar to 'dictionaries'<br>
+            Example:<br>
+            romanNumerals.set(2,'II').set(3,'III').set(4,'IV').set(5,'V');<br>
+            &lt&lt Map { 1 => 'I', 2 => 'II', 3 => 'III', 4 => 'IV', 5 => 'V' }
+        </li>
+        <li>set() is the method used to add a key and value pair to a map</li>
+        <li>
+            <h4>Ternary Operator</h4>
+        </li>
+        <li>It's a shorthand way of writing an if/else statement<br>
+            condition ? (//code to run if condition is true) : (//code to run if condition is false)<br>
+            Example: <br>
+            const n = 5;<br>
+            n%2 === 0 ? console.log('n is an even number') : console.log('n is an odd number');<br>
+            &lt&lt 'n is an odd number'
+        </li>
+    </ul>
+
+    <h3>Notes from Ch4: Functions.</h3>
+    <ul>
+        <li>Function is a part of code that can be referenced by name. It can help reduce repetition and made the code
+            easaier.</li>
+        <li>Ways to define a function:</li>
+        <ul>
+            <li>Function Declaration:<br>
+                To define a function we can use a function declaration. This is a named function <br>
+                Example: <br>
+                function hello(){<br>
+                console.log('Hello World!');<br>
+                }
+            </li>
+            <li>Function Expressions:<br>
+                We can create an expression. This assigns an anonymous function to a variable: <br>
+                Example: <br>
+                const goodbye = function(){<br>
+                console.log('Goodbye World!');<br>
+                };
+            </li>
+            <li>Function() Constructors:<br>
+                A function can also be created using the Function() Constructor. It's not recommended. <br>
+                Example:<br>
+                const hi = new Function('console.log("Hi World!");');
+            </li>
+            <li>Arrow Functions:<br>
+                More succinct by using less verbose syntax. They can be identified by the Arrow =>, the parameters come
+                before the arrow and the main body after. They are aways anonymous, so to refer to them we need to
+                assign
+                them to a variable. <br>
+                Example: <br>
+                const add = (x,y) => x + y;
+            </li>
+        </ul>
+        <li>Functions defined by the function declaration are automatically hoisted, meaning them can be invoked before
+            they have been
+            defined in the code. Variables are not hoisted.
+        </li>
+        <li>Parameters are values that the function needs and they are set when the function is defined. Arguments are
+            the values provided when a function is invoked</li>
+        <li>Every function has a variable called arguments. This is an array-like object that contains every argument
+            passed to the function, but it's not an array so it doesn't have all the methods that an arraya has, just
+            the length</li>
+        <li>A better option is to use the rest operator that can create an array of arguments available inside the
+            function. To use the rest operator, simply place three dots in front of the last parameter in a function
+            declaration.
+            <br> Example:<br>
+            function rest(...args){<br>
+            return args;<br>
+            }
+        </li>
+        <li>Default parameters should always come after non-default parameters</li>
+        <li>
+            <h4>Callbacks</h4>
+        </li>
+        <li>Fucntions that are passed as an argument to another function are called callbacks.<br>
+            Example: <br>
+            function sing(song,callback) {<br>
+            console.log(`I'm singing along to ${song}.`);<br>
+            callback();<br>
+            }<br>
+            function dance() {<br>
+            console.log("I'm moving my body to the groove."); <br>
+            }<br>
+            sing('Let It Go',dance);<br>
+            &lt&lt 'I'm singing along to Let It Go.'<br>
+            'I'm moving my body to the groove.'<br>
+            -- Obs: Note that the callback dance is passed as an argument without parentheses. This is because the
+            argument is only a reference to the function. The actual callback is invoked in the body of the function,
+            where parentheses are used.
+        </li>
+        <li>
+            <h4>Question: Why would I use a callback function if I can call a function inside another without having it
+                as an argument?</h4>
+        </li>
+        <li>
+            <h4>Question: Are callbacks similar to recursion?</h4>
+        </li>
+        <li>
+            <h4>Study more: Callbacks, and callbacks in arrays</h4>
+        </li>
+        <li>Arrays have a number of methods that utilize callbacks to make them more flexible</li>
+        <ul>
+            <li>forEach(): This will loop through the array and invoke a callback function using each value as an
+                argument</li>
+            <li>map(): takes a callback function as a parameter that is invoked on each item in the array</li>
+            <li>reduce(): The reduce(): it cumulatively combines each result to return just a single value. </li>
+            <li>filter(): returns a new array that only contains items from the original array that return true when
+                passed to the callback. </li>
+        </ul>
+
+    </ul>
+    <a href="..\index.html">
+        <h3>&lt- Return</h3>
+    </a>
+</body>
+
+</html>
