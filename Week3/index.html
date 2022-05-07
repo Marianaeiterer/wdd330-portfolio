@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Week 3</title>
+</head>
+
+<body>
+    <h1>Week 3 Notes and Team Activity</h1>
+
+    <h3>Team Activity:</h3>
+    <ul class="team_activity">
+        <li><a href="team_activity.html">Team Activity: Team 7</a></li>
+    </ul>
+
+    <h3>Notes about the "this" keyword:</h3>
+    <ul>
+        <li>A function that is a property of an object is called its method<br>
+            Examples: <br>
+            user.sayHi = function() {<br>
+            alert("Hello!");<br>
+            };<br>
+            user.sayHi(); // Hello!<br>
+            <br>
+            Another way is: <br>
+            // first, declare <br>
+            function sayHi() { <br>
+            alert("Hello!"); <br>
+            } <br>
+            // then add as a method <br>
+            user.sayHi = sayHi;<br>
+
+            user.sayHi(); // Hello!<br>
+        </li>
+        <li>We can use a shorter syntax for the methods<br>
+            Examples:<br>
+            // these objects do the same<br>
+            user = {<br>
+            sayHi: function() {<br>
+            alert("Hello");<br>
+            }<br>
+            };<br>
+            <br>
+            // method shorthand looks better, right?<br>
+            user = {<br>
+            sayHi() { // same as "sayHi: function(){...}"<br>
+            alert("Hello");<br>
+            }<br>
+            };<br>
+        </li>
+        <li>Methods allow object to act like object.doSomething()</li>
+        <li>If we need to access something stored in the object we can use the keyword "this"</li>
+        <li>To access the object, a method can use the "this" keyword.<br>
+            Examples:<br>
+            let user = {<br>
+            name: "John",<br>
+            age: 30,<br>
+
+            sayHi() {<br>
+            // "this" is the "current object"<br>
+            alert(this.name);<br>
+            }<br>
+            };<br>
+
+            user.sayHi(); // John
+        </li>
+        <li>We can also use the name of the object, but if we copy user to another variable and overwrite user, the code
+            won't work. Use "this" prevents those mistakes.</li>
+        <li>“this” can be used in any function, even if it's not a method of an object</li>
+        <li>In JavaScript this is “free”, its value is evaluated at call-time and does not depend on where the method
+            was declared, but rather on what object is “before the dot”.</li>
+        <li>A positive thing about this is that a function can be reused for different objects, but this flexibility
+            creates more possibilities for mistakes. </li>
+        <li>Arrow functions are special: they don't have their “own” this. When this is accessed inside an arrow
+            function, it is taken from outside.</li>
+        <li>Six different ways where this can take on new values:
+            <ol>
+                <li>"this" in global context - Outside of any function, the default for "this" is the window object</li>
+                <li>"this" in object construction - When you create a new instance of an object with the "new" keyword,
+                    "this" refers to the instance. </li>
+                <li>"this" in an object method - Refers to the object itself</li>
+                <li>"this" in a simple function - "this" is always set to Window in a simple function.</li>
+                <li>"this" in an arrow function - "this" in an arrow function is always the same as "this" around it. If
+                    we use arrow functions within an object method, the "this" context stays as the object, not Window.
+                </li>
+                <li>"this" in an event listener - "this" is set to the element that fired the event in an event listener
+                </li>
+            </ol>
+        </li>
+    </ul>
+    <h3>Notes from Chapter 5: Objects</h3>
+    <ul>
+        <li>Objects have properties that can be any JavaScript value. If it's a function, it's known as a method.<br>
+            Example of an object literal:<br>
+            const superman = {<br>
+            name: 'Superman',<br>
+            'real name': 'Clark Kent',<br>
+            height: 75,<br>
+            weight: 235,<br>
+            hero: true,<br>
+            villain: false,<br>
+            allies: ['Batman','Supergirl','Superboy'],<br>
+            fly() {<br>
+            return 'Up, up and away!';<br>
+            }<br>
+            };
+        </li>
+        <li>All objects can change any time when a program is running, even if it was declared using const.</li>
+        <li>The objects can inherit properties from another object, and all objects have the hasOwnProperty() method.
+        </li>
+        <li>To add a new property to an object we simply assign a value to the new property<br>
+            Example: <br>
+            superman.city = 'Metropolis'; <br>
+            &lt&lt 'Metropolis'
+        </li>
+        <li>To change the value of an object's property we use assign. <br>
+            Example:<br>
+            superman['real name'] = 'Kal-El';<br>
+            &lt&lt 'Kal-El'
+        </li>
+        <li>Any property can be removed from an object, we use the delete operator<br>
+            Example:<br>
+            delete superman.fly <br>
+            &lt&lt true
+        </li>
+        <li>Nested Objects are objects that contain other objects. </li>
+        <li>Objects are copied by reference, if we create an object that is a copy of another object, both will point to
+            the same object in memory, so if we change the property in one, it will automatically change in the other,
+            because they refer to the same object. </li>
+        <li>
+            <h4>Built-in Objects:</h4>
+        </li>
+        <li>JavaScript has a number of built-in projects that can be accessed in any part of the program. They provide
+            useful properties and methods. </li>
+        <li>JSON: is a string representation of the object literal notation that we have just seen.</li>
+        <li>JSON methods:</li>
+        <ul>
+            <li>The parse() method transforms a JSON string of data into a JavaScript object</li>
+            <li>The stringify() method transforms a JavaScript object into a JSON string data</li>
+            <li>The methods inside objects are ignored by the stringify()</li>
+        </ul>
+        <li>The Math Object is an object that has several properties that represent mathematical constants and methods
+            of mathematical operations</li>
+        <li>Date Object contains information about dates and times </li>
+        <li>RegExp Object a regular expression is a pattern that can be used to search strings that match the pattern.
+        </li>
+    </ul>
+    <h3>Notes from Chapter 6: The Document Object Model</h3>
+    <ul>
+        <li>The Document Object Model (DOM): represents an HTML document as a network of connected nodes.</li>
+        <li>We can use JavaScript to access and modify parts of a web page using the built-in object called document.
+        </li>
+        <li>The DOM provides several methods that allow us to access any element on a page. These methods will return an
+            object or a note list. </li>
+        <li>Shortcut Methods:</li>
+        <ul>
+            <li>Document.body - returns the body element of a web page</li>
+            <li>Document.images - returns a node list of all the images</li>
+            <li>Document.links - returns a node list of all the &lta> elements and &ltarea> elements with an href
+                attribute</li>
+            <li>Document.anchors - returns a node list of all the &lta> elements with a name attribute</li>
+            <li>Document.forms- returns a node list of all the forms.</li>
+        </ul>
+        <li>Node lists are array-like objects but are not arrays. They can be transformed into an array using
+            Array.from() method.</li>
+        <li>getAttribute() - returns the value of the attribute provided as an argument.</li>
+        <li>setAttribute() - can change the value of an element's attributes. It takes two arguments: the attribute that
+            you wish to change and the new value of that attribute. If an element does not have an attribute, it can add
+            it to the element.<br>
+            Example:<br>
+            We want to change the class of the element in the wonderWomen variable to 'villain', we could do so using
+            this code: <br>
+            wonderWoman.setAttribute('class', 'villain');<br>
+            &lt&lt undefined<br>
+
+            wonderWoman.getAttribute('class');<br>
+            &lt&lt "villain"<br>
+        </li>
+        <li>The remove method will remove a specific class from an element. </li>
+        <li>The toggle method will add a class if an element doesn't have the class and remove the class if the element
+            already has it. </li>
+        <li>The contains method will check to see if the element has a particular class.</li>
+        <li>The innerHTML element property returns all the child elements of an element as a string of HTML. If an
+            element contains lots of other elements, all the raw HTML is returned. It can also be used to place a chunk
+            of HTML inside an element. Also, if we want to insert a large amount of HTML into the document, we can use
+            it to insert the raw HTML as a string instead of creating each element. </li>
+    </ul>
+    <h3>Notes from Chapter 7: Events</h3>
+    <ul>
+        <li>Every time the user interacts with a webpage an event occurs and the program can respond to. </li>
+        <li>Event listeners let the program know that the event happened then the program can respond to it. <br>
+            Example of event listener for when the user clicks anywhere in the page:<br>
+            document.body.addEventListener("click", doSomething);
+        </li>
+        <li>The addEventListener() method is the recommended way to deal with events <br>
+            Example:<br>
+            document.body.addEventListener('click',doSomething);<br>
+
+            The first parameter is the type of event<br>
+            The second parameter is a callback function that is invoked when the event occurs.
+        </li>
+        <li>Some types of events:</li>
+        <ul>
+            <li>Click</li>
+            <li>Mousedown</li>
+            <li> Mouseup</li>
+            <li>Dblclick, double click</li>
+            <li>Mouseover - occurs when the mouse pointer is placed over the element</li>
+            <li>Mouseout - occurs when the mouser point moves away from an element. </li>
+            <li>Mousemove - occurs whenever the mouse moves, while the cursor is placed in the element applied. </li>
+            <li>Keydown - occurs when a key is pressed and continue if the key is held down</li>
+            <li>Keypress - after the keydown and before the keyup. Only occurs for keys that produce character input.
+                This means that it's the most reliable way to find out the character that was pressed on the keyboard.
+            </li>
+            <li>Keyup - occurs when a key is released. </li>
+        </ul>
+        <li> removeEventListener() method can remover an event listener</li>
+        <li>preventDefault() method prevents the default behavior. Be careful when using it. </li>
+        <li>Event Propagation is the order that the events fire on each element. When you click on an element, you are
+            actually clicking on all the elements nested inside of it. </li>
+        <li>Bubbling: The event fires on the element clicked first, and then bubbles up firing an event on each parent
+            element until the root. </li>
+        <li>Capturing: fires an event on the root element first and then propagates downwards, firing an event on each
+            child element until it reaches the target element that was clicked on. It happen adding the third parameter to the addEventListener() method.<br>
+            Example: <br>
+            ulElement.addEventListener('click', (event) =><br>
+            console.log('Clicked on ul'),true);<br>
+
+            liElement.addEventListener('click', (event) =><br>
+            console.log('Clicked on li'),true);<br>
+        </li>
+        <li>Event Delegation: used to attach an event listener to a parent element in order to capture events that are triggered by its child elements.<br>
+            Example:<br>
+            &ltul id='list'><br>
+            &ltli>one&lt/li><br>
+            &ltli>two&lt/li><br>
+            &ltli>three&lt/li><br>
+            &lt/ul><br>
+            ulElement.addEventListener('click',highlight);<br>
+            Now clicking on any list item will highlight that list item as if it was the target of the click event.
+        </li>
+
+    </ul>
+
+
+    <h3>Some searches about callback</h3>
+    <ul>
+        <li>Callbacks were not so clear last week. Some links that help to understand callbacks more</li>
+        <li><a target=”_blank” href="https://www.geeksforgeeks.org/how-to-create-a-custom-callback-in-javascript/">How to create a custom callback in JavaScript?</a></li>
+        <li><a target=”_blank” href="https://stackoverflow.com/questions/7070495/why-use-callback-in-javascript-what-are-its-advantages">Why use callback in JavaScript, what are its advantages?</a></li>
+        <li><a target=”_blank” href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop">The event loop</a></li>
+    </ul>
+
+
+    <a href="..\index.html">
+        <h3>&lt- Return</h3>
+    </a>
+</body>
+
+</html>
