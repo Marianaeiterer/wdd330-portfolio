@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+h2{
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    padding-left: 1.5em;
+}
+p{
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    padding-left: 2em;
+}
+.container{
+    padding: 1.5em;
+    display: grid;
+    
+    grid-template-columns: 150px 150px 150px;
+    grid-template-rows: 150px 150px 150px;
+}
+
+.cell{
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    display: grid;
+    place-items: center;
+    font-size: 2em;
+    border: 1px solid black;
+}
+
+div:nth-child(1){
+    border-left: none;
+    border-top: none;
+}
+div:nth-child(2){
+    border-top: none;
+}
+div:nth-child(3){
+    border-right: none;
+    border-top: none;
+}
+div:nth-child(4){
+    border-left: none;
+}
+div:nth-child(6){
+    border-right: none;
+}
+div:nth-child(7){
+    border-left: none;
+    border-bottom: none;
+}
+div:nth-child(8){
+    border-bottom: none;
+}
+div:nth-child(9){
+    border-right: none;
+    border-bottom: none;
+}
+
+.reset_button{
+    margin-left: 2.5em;
+    background-color: #63A088;
+    padding: 0.5em;
+    border-radius: 5px;
+    border: 2px solid black;
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    color: white;
+
+}

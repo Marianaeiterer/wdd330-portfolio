@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Week 4</title>
+</head>
+
+<body>
+    <h1>Week 4 Notes and Team Activity</h1>
+
+    <h3>Team Activity:</h3>
+    <ul class="team_activity">
+        <li><a href="team_activity.html">Team Activity: Team 7</a></li>
+    </ul>
+
+    <h3>Notes from Chapter 8: Forms</h3>
+    <ul>
+        <li>Forms are a common method to interact with a web page</li>
+        <li>Normally, when the form is submitted, the information is processed using languages like PHP or Ruby in the
+            'back end'. I's possible to process the information with JavaScript before the form is submitted. </li>
+        <li>In the example, in this part &ltform name='search' action='/search'>, the action attribute is the URL that
+            the form will be submitted to be processes in the server side. </li>
+        <li>Documents.forms return an HTML collection of all forms</li>
+        <li>Ways to access the form:</li>
+        <ul>
+            <li>const form = document.forms[0];</li>
+            <li>const form = document.getElementsByTagname('form')[0]; - by the tag name</li>
+            <li>const form = document.forms['search']; - by the name attribute</li>
+        </ul>
+        <li>A form object also has a method called elements that return and HTML collection with the elements that the
+            form contain. </li>
+        <li>Ways to access the elements: </li>
+        <ul>
+            <li>const [input,button] = form.elements;</li>
+            <li>const input = form['searchInput'] - using the name attribute of the element</li>
+        </ul>
+        <li>form.reset() - reset all the form controls back to their initial value. We can also use a button type reset
+            to do this.</li>
+        <li>event.preventDefault(); can prevent the form to be submitted to the URL that is defined in the form </li>
+        <li>Text input element objects have a value property that can be used to retrieve the text inside the field.
+        </li>
+        <li>We can also set a value for the input field - input.value = 'Search Here'; <br>
+            The only problem with this is that the text continues to show in the input field when the user clicks in it,
+            so we need to delete it before the user types.</li>
+        <li>We can use the placeholder attribute to have a similar functionality. The difference is that the placeholder
+            is not a value, so it won't be submitted if the user fails to fill the form. </li>
+        <li>The autofocus in an input tag gives focus to the element when the page loads. It's the same as adding this
+            to the Java Script: document.forms.hero.heroName.focus();</li>
+        <li>The default of an input field is text. It's not necessary to use the attribute 'type=text' if the field is a
+            text field, but it's good for maintenance. </li>
+
+        <li>The 'type=checkbox' field is used to select different option; the user can select more than one checkbox
+            from a list. <br>
+            Example: <br>
+            &ltp>Super Powers:&lt/p><br>
+            &ltlabel for='flight'>Flight:<br>
+            &ltinput type='checkbox' id='flight' value='Flight' name='powers'><br>
+            &lt/label><br>
+            &ltlabel for='strength'>Super Strength:<br>
+            &ltinput type='checkbox' id='strength' value='Strength' name='powers'><br>
+            &lt/label><br>
+            &ltlabel for='speed'>Super Speed:<br>
+            &ltinput type='checkbox' id='speed' value='Super Speed' name='powers'><br>
+            &lt/label><br>
+            &ltlabel for='energy'>Energy Blasts:<br>
+            &ltinput type='checkbox' id='energy' value='Energy Blasts' name='powers'><br>
+            &lt/label><br>
+            &ltlabel for='telekinesis'>Telekinesis:<br>
+            &ltinput type='checkbox' id='telekinesis' value='Telekinesis' name='powers'><br>
+            &lt/label>
+        </li>
+        <li>
+            We also use the same name attribute in the checkbox options, so we can access it by: form.powers;
+        </li>
+        <li>With this we can iterate over this collection with the for loop. We can check if a checkbox is checked or
+            not using the 'checked' property, that has the values of true or false. </li>
+        <li>
+            We can set a checkbox for true, so it will be checked when the page loads:<br>
+            Examples: <br>
+            document.forms.hero.powers[0].checked = true;<br>
+            &ltinput type='checkbox' value='Flight' name='powers' checked> - like this: <input type='checkbox'
+                value='Flight' name='powers' checked>
+        </li>
+        <li>The 'type=radio' allow the user to check an option like the checkbox, but only one option can be selected.
+        </li>
+        <li>We also use the same name attribute as in the checkbox, and we can access the collection with a similar
+            method: form.category; (category is the name attribute used in the example)</li>
+        <li>The value of the radio button that was selected is stored in: form.category.value;</li>
+        <li>Similar to the checkbox we can also set a radio button to be checked when the web page loads.</li>
+        <li>The select drop-down list also can be used to select one or more options. To select more than one option the
+            'multiple' attributes is required. We can access the value in the same way we did in the other inputs, using
+            the value property or we can use the selectedIndex property<br>
+            Example: <br>
+            form.city.options[form.city.selectedIndex].text
+        </li>
+        <li>Text area field is used to enter long pieces of text. We also access the text using the value property. <br>
+            To set a textarea to a initial value we can use: <br>
+            form.origin.value = 'Born as Kal-El on the planet Krypton...'; or
+
+            &lttextarea name='origin' rows='20' cols='60'>Born as Kal-El on the planet Krypton...&lt/textarea>
+        </li>
+        <li>
+            <h4>Form Validation</h4>
+        </li>
+        <li>Form validation is the process of checking whether a user has entered the information into a form correctly.
+        </li>
+        <li>Validation can occur on the client side and on the server side. JavaScript validation should be used to
+            enhance the user experience when filling in a form by giving feedback about any errors before it's
+            submitted. This should then be backed up with more validation performed on the server before the data is
+            eventually saved to a database</li>
+        <li>The HTML5 form validation API can be used to automatically validate a form, but only at a basic level, so
+            a custom validation script may be required.</li>
+        <li>Adding a 'required' in the input field don't allow the user to submit the form without filling that field.
+        </li>
+        <li>We can add custom validations with functions. </li>
+        <li>We can give instantly feedback using </li>
+        <li>A useful technique is disabling the submit button if there are error on the form, so this prevents the user
+            to send a form with wrong information. We do this adding 'disable' to the button tag. <br>
+            Example: <br>
+
+            &ltbutton type='submit' id='submit' disabled>Submit&lt/button><br>
+            <br>
+            And we can change it with: <br>
+
+            function disableSubmit(event) {<br>
+            if(event.target.value === ''){<br>
+            document.getElementById('submit').disabled = true;<br>
+            } else {<br>
+            document.getElementById('submit').disabled = false;<br>
+            }<br>
+            }<br>
+
+        </li>
+    </ul>
+
+    <h3>Notes from Chapter 12: Object Oriented Programming</h3>
+    <ul>
+        <li>Object-oriented programming (OOP for short) is a style of programming that involves separating the code into
+            objects that have properties and methods. This approach has the benefit of keeping related pieces of code
+            encapsulated in objects that maintain state throughout the life of the program. </li>
+        <li>It's often used to model representations of objects in the real world. </li>
+        <li>The Encapsulation concept is that the inner workings are kept hidden inside the object and only the
+            essential functionalities are exposed to the end user</li>
+        <li>The Polymorphism concept is that the same process can be used for different objects. This means various
+            objects can share the same method, but also have the ability to override shared methods with a more specific
+            implementation.</li>
+        <li>The Inheritance concept is taking the features of one object then adding some new features. In OOP, this
+            means we can take an object that already exists and inherit all its properties and methods. We can then
+            improve on its functionality by adding new properties and methods</li>
+        <li>Instanceof operator can confirm if a variable is an instance of a type of constructor function</li>
+        <li>Example using constructor function:<br>
+            const Dice = function(sides=6){<br>
+            this.sides = sides;<br>
+            this.roll = function() {<br>
+            return Math.floor(this.sides * Math.random() + 1)<br>
+            }<br>
+            }<br>
+            const redDice = new Dice();<br>
+            &lt&lt Dice { sides: 6, roll: [Function] }<br>
+            <br>
+            redDice instanceof Dice<br>
+            &lt&lt true<br>
+        </li>
+        <li>
+            Class declaration: <br>
+            class Dice {<br>
+            constructor(sides=6) {<br>
+            this.sides = sides;<br>
+            }<br>
+
+            roll() {<br>
+            return Math.floor(this.sides * Math.random() + 1)<br>
+            }<br>
+            }<br>
+            <br>
+            To create a instance of Dice:<br>
+
+            const blueDice = new Dice(20);<br>
+            &lt&lt Dice { sides: 20 }<br>
+        </li>
+        <li>Use class declaration avoid possible errors. It requires the use of the 'new' key word, so prevents some
+            mistakes that can be made with the constructor function not if the new keyword is forget. </li>
+        <li>All objects have a constructor property that returns the constructor function that created it</li>
+        <li>Static methods are called by the class directly, not by the instances <br>
+            Example: <br>
+            If the Dice Class has a static method like this:<br>
+            static description() {<br>
+            return 'A way of choosing random numbers'<br>
+            }<br>
+            <br>
+            This method is called like this:<br>
+            Dice.description()<br>
+            &lt&lt 'A way of choosing random numbers'<br>
+            And not by an instance like: <br>
+            redDice.description<br>
+            &lt&lt TypeError: red.description is not a function
+
+        </li>
+        <li>
+            <h4>Prototypal Inheritance</h4>
+        </li>
+        <li>JavaScript uses a prototypal inheritance model. This means that every class has a prototype property that is
+            shared by every instance of the class. So any properties or methods of a class's prototype can be accessed
+            by every object instantiated by that class.</li>
+        <li>The prototype object is live, so if a new property or method is added to the prototype, any instances of its
+            class will inherit the new properties and methods automatically, even if that instance has already been
+            created. </li>
+        <li>An object can overwrite any prototype property or method by assigning a new value for it. </li>
+        <li>The prototype can be used to add new properties or methods after the class was declared and to define any
+            properties that will be the same in all instances of that class. </li>
+        <li>
+            <h4>Public and Private Methods</h4>
+        </li>
+        <li>By default, the methods are public. Methods and properties when they can be queried directly and changed by
+            assignment. </li>
+        <li>We can prevent the properties and methods from being accessed or changed making them private. And to access
+            the values we use a getter method. </li>
+        <li>A class can inherit from another class using the extends keyword in a class declaration.<br>
+            Example:<br>
+            class NinjaTurtle extends Turtle {<br>
+            constructor(name) {<br>
+            super(name);<br>
+            this.weapon = 'hands';<br>
+            }<br>
+            attack() { return `Feel the power of my ${this.weapon}!` } <br>
+            }
+        </li>
+        <li>
+            <h4>Polymorphism</h4>
+        </li>
+        <li>Different objects can have the same method, but implement it in different ways
+            All objects inherit the toString() method from the Object.prototype and a useful thing is to override this
+            method to display something more meaningful.
+        </li>
+        <li>
+            <h4>Get and Set</h4>
+        </li>
+        <li>An object property descriptor can have get() and set() methods instead of a value attribute. The get and
+            set property descriptors are particularly useful for controlling the getting and setting of properties in
+            classes. Give us more power to control the way the property assignment works. </li>
+        <li>
+            <h4>Mixins</h4>
+        </li>
+        <li>One use for the mixin() function is to add a large number of properties to an object all at once. <br>
+            Example: <br>
+            mixin(wonderWoman,{ name: 'Wonder Woman', realName: 'Diana Prince' });<br>
+            wonderWoman.change()<br>
+            &lt&lt 'Diana Prince goes into a phone box and comes out as Wonder Woman'
+        </li>
+        <li>
+            <h4>Chaining Functions</h4>
+        </li>
+        <li>
+            If a method returns 'this', its methods can be chained together to form a sequence of method calls that are
+            called one after the other.<br>
+            Example:<br>
+
+            superman.fly().move().xray();<br>
+            &lt&lt Up, up and away! Superman soars through the air!<br>
+            Superman can move faster than a speeding bullet!<br>
+            Superman can see right through you!
+
+        </li>
+        <li>
+            <h4>Composition Over Inheritance</h4>
+        </li>
+        <li>
+            Composition over inheritance sees objects as building blocks that go together to make other objects rather
+            than classes that are monolithic structures layered on top of each other.
+        </li>
+        <li>A good rule is to only inherit once, keeping the inheritance chain to just 2 objects</li>
+        <li>If it's necessary to use a method from another class, but this other class has a lot of properties and
+            methods, it's easier to borrow the method<br>
+            Example:<br>
+            banana = Gorilla.prototype.banana;
+        </li>
+        <li>Or move the method into a separate object then add it as a mixin to the originally class and to any other
+            object that needs it. </li>
+    </ul>
+    <h3>Notes from the section Modular of Chapter 15: Modern Javascript:</h3>
+    <ul>
+        <li>
+            A module is a self-contained piece of code that provides functions and methods that can then be used in
+            other files and by other modules. This helps to keep code organized in separate, reusable files, which
+            improves code maintainability <br>
+            Example: <br>
+            Keep any functions used for Ajax in their own module. This could then be used in any projects where
+            Ajax was required.
+        </li>
+        <li>Important points about modules in JavaScript:</li>
+        <ul>
+            <li>All code in modules is always in strict mode without the need for 'use strict' and there is no way to
+                opt out of this. </li>
+            <li> A module has its own global scope, so any variables created in the top-level of a module can only be
+                accessed within that module.</li>
+            <li> The value of this in the top level of a module is undefined, rather than the global object.</li>
+            <li> You can't use HTML-style comments in modules (although this isn't very common in any JavaScript program
+                these days).
+            </li>
+        </ul>
+        <li>A module file is a normal JavaScript file, but has the exports keyword to specify any values or functions
+            that will be available from the module. <br>
+            Example: <br>
+            In a pi.js we have: <br>
+            export const PI = 3.1415926; <br>
+            Then in the main.js we have: <br>
+            import { PI } from './pi.js'; <br>
+            Now we can use the variable PI inside the main.js
+        </li>
+        <li>Everything in a module file can be imported using the wildcard symbol * along with a namespace for the
+            imported values and functions <br>
+            Example: <br>
+            import * as stats from './stats.js'; <br>
+            To use a function we write: stats.mean([2,6,10]);
+        </li>
+        <li>- Default exports refer to a single variable, function or class in a module that can be imported without
+            having to be explicitly named.<br>
+            Example:<br>
+            function square(x) {<br>
+            return x * x;<br>
+            }<br>
+            export default square;<br>
+            <br>
+            To import we use:<br>
+            import square from './square.js';
+
+        </li>
+    </ul>
+
+    <h3>Practices</h3>
+    <h3>- <a href="array_cardio2.html">Array Practice with Array Cardio 2</a></h3>
+    
+    <p>- This exercise is from one of the chapter, I did it with the notes and reading to understand more: <a href="hero.html">Exercise of forms</a></p>
+
+    <a href="..\index.html">
+        <h3>&lt- Return</h3>
+    </a>
+</body>
+
+</html>
