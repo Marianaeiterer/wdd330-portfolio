@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Week 5</title>
+</head>
+
+<body>
+    <h1>Week 5 Notes and Team Activity</h1>
+
+    <h3>Team Activity:</h3>
+    <ul class="team_activity">
+        <li><a href="team_activity.html">Team Activity: Team 7</a></li>
+        <li>We were able to do the core requirements, but not the challenges. We tried a lot, but we end up not finding the solution. I was able to
+            get the full hike in a new page, but I wasn't able to make the event happening. I left the things I tried as
+            a comment inside the function.<br>
+            After we compared the instructor solution with our solution, we notice the differences and how he did the
+            challenges. <br> I updated my code to work as the solution. I also notice he added colors in the
+            headings. In the other classes that I studied wireframes, the boxes was just showing the template of the
+            page which we did it right, so I got confused that the box was a color too, but I made this correction in my code.<br>
+        </li>
+    </ul>
+
+    <h3>Notes from Ch10: Testing and Debugging:</h3>
+    <ul>
+        <li>Possible causes of errors:</li>
+        <ul>
+            <li>System error ― there's a problem with the system or external devices with which the program is
+                interacting.</li>
+            <li>Programmer error ― the program contains incorrect syntax or faulty logic; it could even be as simple as
+                a typo.</li>
+            <li>User error ― the user has entered data incorrectly, which the program is unable to handle.</li>
+        </ul>
+        <li>An exception is an error that produces a return value that can then be used by the program to deal with the
+            error.</li>
+        <li>A warning can occur if there's an error in the code that isn't enough to cause the program to crash. The
+            program will continue to run after t he warning.</li>
+        <li>Strict mode produces more exception and warnings and prohibits the use of some deprecated features</li>
+        <li>It makes the code clearer and faster. </li>
+        <li>To use it we add this to the first line of the JavaScript file:<br>
+            'use strict';</li>
+        <li>The recommended way to use strict mode is to place it inside a self-invoking function with all the code also
+            inside it:<br>
+            Example:<br>
+            (function() { <br>
+            'use strict';<br>
+
+            // All your code would go inside this function<br>
+
+            }());<br>
+        </li>
+        <li>- Linting tools such as JS Lint,JS Hint, and ES Lint can be used to test the quality of JavaScript code,
+            beyond simply using strict mode. They are designed to highlight any sloppy programming practices or syntax
+            errors, and will complain if certain style conventions are not followed, such as how code is indented.</li>
+        <li>Some options of debugging JavaScript:</li>
+        <ul>
+            <li>The trusty alert: The most basic form is to use an alert() method to show a dialog at certain points in
+                the code. This method stops the programming to run until we press OK, so we can check if the value of
+                variables are the ones expected. </li>
+
+            <li>Using console: the console object can help us to see the value of the different variables during the
+                execution of the programming. It doesn't not stop the program to run though. </li>
+
+            <li>Debugging tools: Most modern browsers also have a debugging tool that allows you to set breakpoints in
+                your code that will pause it at certain points. You can then see the values of all the variables at
+                those points and modify them.<br>
+                One of the most useful commands is the debugger keyword. This will create a breakpoint in your code that
+                will pause the execution of the code and allow you to see where the program is currently up to.
+            </li>
+        </ul>
+        <li>An error object can be created by the host environment when an exception occurs</li>
+        <li>Error Objects used for specific errors:</li>
+        <ul>
+            <li>RangeError is thrown when a number is outside an allowable range of values.</li>
+            <li>ReferenceError is thrown when a reference is made to an item that doesn't exist. For example, calling a
+                function that hasn't been defined. </li>
+            <li> SyntaxError is thrown when there's an error in the code's syntax. </li>
+            <li> TypeError is thrown when there's an error in the type of value used; for example, a string is used when
+                a number is expected. </li>
+            <li> URIError is thrown when there's a problem encoding or decoding the URI. </li>
+            <li> InternalError is a non-standard error that is thrown when an error occurs in the JavaScript engine. A
+                common cause of this too much recursion.
+            </li>
+        </ul>
+        <li>Error properties that are safe to use: name, message and stack. </li>
+        <li>We can throw exceptions using the throw keyword and its best practice to throw and error object that can be
+            catch in the catch block. </li>
+        <li>We can handle exceptions to prevent the program to terminate with an error message. </li>
+        <li>If we suspect a piece of code will result in an exception, we can wrap it in a try block. This will run the
+            code inside the block as normal, but if an exception occurs it will pass the error object that is thrown
+            onto a catch block.<br>
+            Example:<br>
+            function imaginarySquareRoot(number) {<br>
+            'use strict';<br>
+            try {<br>
+            return String(squareRoot(number));<br>
+            } catch(error) {<br>
+            return squareRoot(-number)+'i';<br>
+            }<br>
+            }
+        </li>
+        <li>A finally block can be added after a catch block. This will always be executed after the try or catch
+            block, regardless of whether an exception occurred or not. It is useful if you want some code to run in both
+            cases.</li>
+        <li>Test-driven development (TDD) is the process of writing tests before any actual code. </li>
+        <ol>
+            <li> Write tests (that initially fail)</li>
+            <li> Write code to pass the tests</li>
+            <li>Refactor the code</li>
+            <li>Test refactored code</li>
+            <li>Write more tests for new features</li>
+
+        </ol>
+        <li>Testing frameworks provide a structure to write meaningful tests and then run them. </li>
+        <li>Jest Framework example: <br>
+            function squareRoot(number) {<br>
+            'use strict';<br>
+            if (number &lt 0) {<br>
+            throw new RangeError("You can't find the square root of negative numbers")<br>
+            }<br>
+            return Math.sqrt(number);<br>
+            };<br>
+            <br>
+            test('square root of 4 is 2', () => {<br>
+            expect(squareRoot(4)).toBe(2);<br>
+            });<br>
+
+            Result:<br>
+            &lt&lt PASS ./squareRoot.test.js<br>
+            ✓ square root of 4 is 2 (2ms)<br>
+            <br>
+            Test Suites: 1 passed, 1 total<br>
+            Tests: 1 passed, 1 total<br>
+            Snapshots: 0 total<br>
+            Time: 2.996s<br>
+
+        </li>
+    </ul>
+
+
+
+    <a href="..\index.html">
+        <h3>&lt- Return</h3>
+    </a>
+</body>
+
+</html>
