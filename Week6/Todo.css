@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+body{
+    font-family: "Roboto", Arial, Helvetica, sans-serif;
+    padding: 1.5em;
+}
+
+#todoList{
+    list-style: none;
+    width: 400px;
+    padding: 0;
+}
+
+#todoList li{
+    
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+}
+#todoList li > button{
+    flex: 0 0 40px;
+    padding: 0.5em;
+    margin-left: auto;
+    background-color: #E9839B;
+    color: white;
+    border: #E9839B;
+}
+#filterList{
+    list-style: none;
+    display: grid;
+    padding: 0;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    width: 398px;
+    border: 1px solid black;
+    margin-top: -1em;
+    
+}
+
+#filterList li{
+    padding: 1em;
+   
+}
+
+#input{
+    padding: 0.4em;
+}
+
+#addTodo{
+    padding: 0.5em;
+    background-color: #E9839B;
+    color: white;
+    border: #E9839B;
+}
+
+.task{
+    margin-top: 2em;
+}
+
+#error{
+    font-size: 0.9em;
+    color: rgb(243, 39, 39);
+}
+
+#filterList button{
+    padding: 0.5em;
+    background-color: #E9839B;
+    color: white;
+    border: #E9839B;
+}
+
+#filterList button:active{
+    background-color: rgb(235, 20, 221);
+}
+
+button{
+    cursor: pointer;
+}

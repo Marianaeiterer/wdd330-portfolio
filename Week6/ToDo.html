@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Todo.css"/>
+    <title>ToDo</title>
+    <script src="main.js" type="module"></script>
+</head>
+
+<body>
+   <h1>ToDo List</h1>
+   <ul id="todoList">
+   </ul>
+   <footer>
+       <ul id="filterList">
+           <li id="tasks"></li>
+           <li><button id="allTodos">All</button></li>
+           <li><button id="active">Active</button></li>
+           <li><button id="complete">Completed</button></li>
+       </ul>
+</footer>
+<div class="task">
+   <input type="text" id="input" placeholder="Type your task"/>
+   <button type="submit" id="addTodo">Add Task</button>
+   <p id="error"></p>
+</div>
+</body>
+
+</html>
