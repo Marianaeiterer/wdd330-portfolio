@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Week 7</title>
+</head>
+
+<body>
+    <h1>Week 7 Notes and Team Activity</h1>
+
+    <h3>Team Activity:</h3>
+    <ul class="team_activity">
+        <li><a href="Hikes/hiking-start.html">Team Activity: Team 7</a></li>
+    </ul>
+
+    <h3>Notes from Chapter 11: Further Functions:</h3>
+    <ul>
+        <li>Functions have properties and methods themselves. </li>
+        <li>All functions have a length property that returns the number of parameters the function has. </li>
+        <li>Call() method - It can be used to set the value of “this” inside a function to an object that is provided as
+            the first argument.
+            <br> Example: <br>
+            function sayHello(){<br>
+            return `Hello, my name is ${ this.name }`;<br>
+            }<br>
+            const clark = { name: 'Clark' };<br>
+            const bruce = { name: 'Bruce' };<br>
+
+            sayHello.call(clark);<br>
+            &lt&lt 'Hello, my name is Clarke'<br>
+
+            sayHello.call(bruce);<br>
+            &lt&lt 'Hello, my name is Bruce'<br>
+        </li>
+        <li>Apply() method: works the same way that call() method, but the arguments of the function are provided as an
+            array. It's not really needed.
+            <br> Example: <br>
+            square.apply(null, [4])<br>
+            &lt&lt 16
+        </li>
+        <li>The Cache property can store the results of functions that were used. Then if the same argument is used
+            again later, we can return the value from the cache, rather than having to compute the result again.<br>
+            Example:<br>
+            function square(x){<br>
+            square.cache = square.cache || {};<br>
+            if (!square.cache[x]) {<br>
+            square.cache[x] = x*x;<br>
+            }<br>
+            return square.cache[x]<br>
+            }
+        </li>
+        <li>An Immediately Invoked Function Expression is an anonymous function that, as the name suggests, is invoked
+            as soon as it's defined.</li>
+        <li>It allows to have temporary variables inside the function. </li>
+        <li>It can be used to initialization code that there'll be no need for again. Because the code is only run once,
+            there's no need to create any reusable, named functions, and all the variables will also be temporary.</li>
+        <li>To avoid problems, we can use the strict mode inside this function. Especially if we are working in a team.
+            <br>
+            Example:<br>
+            (function() {<br>
+            'use strict';<br>
+
+            // All your code would go inside this function<br>
+
+            })();
+        </li>
+        <li>It can be used to enclose a block of code inside its own private scope so it doesn't interfere with any
+            other part of the program. Using IIFEs in this way means code can be added or removed separately. </li>
+        <li>
+            A recursive function is one that invokes itself until a certain condition is met.<br>
+            Example: The function that calculates the factorial of a number<br>
+            function factorial(n) {<br>
+            if (n === 0) {<br>
+            return 1;<br>
+            } else {<br>
+            return n * factorial(n - 1);<br>
+            }
+            }
+        </li>
+        <li>
+            <h4>Callbacks:</h4> Callbacks are functions passed to other functions as arguments and then invoked inside
+            the function they are
+            passed to.
+        </li>
+        <li>
+            <h4>Event-driven Asynchronous Programming:</h4>Callbacks can be used to facilitate event-driven asynchronous
+            programming. Instead of waiting for an event
+            to occur, a callback can be created that's invoked when the event happens. This means that the code is able
+            to run out of order, or asynchronously.
+        </li>
+        <li>Events can be DOM events, such as the click and keypress, but they can also be events such as the
+            completion of a file download, data returned from a database, or the result of a complex operation. By using
+            callbacks, we ensure that waiting for these tasks to complete doesn't hold up the execution of other parts
+            of the program</li>
+        <li>A callback always has to wait for the current execution stack to complete before it's invoked.</li>
+        <li>
+            <h4>Promises:</h4>A promise represents the future result of an asynchronous operation. Promises don't do
+            anything that can't
+            already be achieved using callbacks, but they help simplify the process, and avoid the convoluted code that
+            can result from using multiple callbacks.
+        </li>
+        <li>When a promise is created, it calls an asynchronous operation and is then said to be pending. It remains in
+            this state while the operation is taking place. Once the operation has completed, the promise is said to
+            have been settled. A settled promise can result in two
+            different outcomes:</li>
+        <ul>
+            <li>Resolved ― the asynchronous operation was completed successfully.</li>
+            <li>Rejected ― the asynchronous operation didn't work as expected.</li>
+        </ul>
+        <li>How to create a promise:</li>
+        <li>A promise is created using a constructor function. This takes a function called an executor as an argument.
+            The executor initializes the promise and starts the asynchronous operation. It also accepts two functions as
+            arguments: the resolve() function is called if the operation is successful, and the reject() function is
+            called if the operation fails</li>
+        <li>Example of a general promise: <br>
+            const promise = new Promise( (resolve, reject) => {<br>
+            // initialization code goes here<br>
+            if (success) {<br>
+            resolve(value); <br>
+            } else {<br>
+            reject(error);<br>
+            }
+            });
+        </li>
+        <li>The then() method can be used to deal with the outcome. This method accepts two arguments. The first is a
+            fulfilment function that's called when the promise is resolved. The second argument is a rejection function
+            that's called if the promise is rejected. </li>
+            <li>Every time we have a promise we have to handle it in .then and .catch</li>
+        <li>This is an example of the book that I followed to understand it better:</li>
+        <li><a href="dice.html">Example of promise</a></li>
+        <li>
+            <h4>Closures:</h4>
+            Closures are one of JavaScript's most powerful features
+        </li>
+        <li>Whenever a function is defined inside another function, the inner function will have access to any
+            variables that are declared in the outer function's scope.</li>
+        <li>A closure is formed when the inner function is returned by the outer function, maintaining access to any
+            variables declared inside the enclosing function. What makes this a closure is that it now has access to the
+            variables created inside both the outer and the inner functions.</li>
+        <li>A closure doesn't just have access to the value of a variable, it can also change the value of the
+            variable long after the function in which it was originally declared has been invoked.</li>
+        <li>Example Practical: <br>
+
+            function closure() {<br>
+            const a = 1.8;<br>
+            const b = 32;<br>
+            return c => c * a + b;<br>
+            }<br>
+            const toFahrenheit = closure();<br>
+            toFahrenheit(30);<br>
+            &lt&lt 86
+        </li>
+        <li>
+            <h4>Generators:</h4>
+            These are special functions used to produce iterators that maintain the state of a value
+        </li>
+        <li>To define a generator: <br>
+            function* exampleGenerator() {<br>
+            // code for the generator goes here<br>
+            }
+        </li>
+        <li>The generator has a next() method that returns a value every time its called. </li>
+        <li>Example of a generator:<br>
+            function* fibonacci(a,b) { <br>
+            let [ prev,current ] = [ a,b ];<br>
+            while(true) {<br>
+            [prev, current] = [current, prev + current];<br>
+            yield current;
+            }
+            }<br>
+            const sequence = fibonacci(1,1); - create a generator object and it's now stored in the sequence
+            variable.<br>
+
+            sequence.next();<br>
+            &lt&lt 2 sequence.next(); <br>
+            &lt&lt 3 sequence.next(); <br>
+            &lt&lt 5
+        </li>
+        <li>The yield keyword is used to return a value, and the state of the value is remembered the next time yield is
+            called. Hence, the current value in the Fibonacci sequence will be stored for use later. </li>
+        <li>
+            <h4>Functional Programming: </h4>The ability to pass functions as arguments, return them from other
+            functions, and
+            use anonymous functions and closures, are all fundamental elements of functional programming that JavaScript
+            excels at.
+        </li>
+        <li>A key aspect of functional programming is its use of pure functions.</li>
+        <li>A pure function follow the rules:</li>
+        <ol>
+            <li>The return value of a pure function should only depend on the values provided as arguments. It doesn't
+                rely on values from somewhere else in the program.</li>
+            <li>There are no side-effects. A pure function doesn't change any values or data elsewhere in the program.
+                It only makes non-destructive data transformations and returns new values, rather than altering any of
+                the underlying data.</li>
+            <li>Referential transparency. Given the same arguments, a pure function will always return the same result.
+            </li>
+        </ol>
+        <li>By only performing a single task, pure functions are more flexible. By separating each piece of
+            functionality into individual functions, we're able to compose a more complex function.</li>
+        <li>They also help to make your code more modular, as each function can be improved upon or replaced without
+            interfering with any of the other functions.</li>
+        <li>Example of an impure function: <br>
+            let number = 42;<br>
+            let result = 0;<br>
+
+            function impureAdd(x) {<br>
+            result = number + x;
+            }<br>
+            impureAdd(10);<br>
+            result;<br>
+            &lt&lt 52 <br>
+            It's impure, because it breaks the rules for a pure function. It requires a variable declared
+            outside of the function, it also changes the value of the result variable, and it would return a
+            different value if the number variable was different. </li>
+        <li>Example of a pure function to make the same thing: <br>
+            const number = 42;<br>
+            function pureAdd(x,y) {<br>
+            return x + y;
+            }<br>
+            result = pureAdd(number,10);<br>
+            &lt&lt 52
+        </li>
+        <li>
+            <h4>Currying:</h4>
+            It is a process that involves the partial application of functions.
+        </li>
+        <li>- A function is said to be curried when not all arguments have been supplied to the function, so it returns
+            another function that retains the arguments already provided, and expects the remaining arguments that were
+            omitted when the original function was called. A final result is only returned once all the expected
+            arguments have eventually been provided.</li>
+    </ul>
+
+    <h3>Notes from Chapter 13: AJAX:</h3>
+    <ul>
+        <li>Ajax is a technique that allows web pages to communicate asynchronously with a server, and it dynamically
+            updates web pages without reloading. </li>
+        <li>A client, such as a web browser, will request a resource (usually a web page) from a server, which processes
+            the request and sends back a response to the client.</li>
+        <li>Ajax enabled JavaScript to send requests and receive responses from a server, allowing content to be updated
+            in real time. The resources are usually a JSON data or small fragments of text or HTML. </li>
+        <li>
+            <h4>The Fetch API</h4>
+        </li>
+        <li>Fetch() method - has only one mandatory argument that is the URL of the resource. </li>
+        <li> Example: <br>
+            fetch('https://example.com/data')<br>
+            .then( // code that handles the response )<br>
+            .catch( // code that runs if the server returns an error )
+        </li>
+        <li>
+            <h4>Response Interface</h4>
+        </li>
+        <li>The response interface deals with the object that's returned when the promised is fulfilled. </li>
+        <li>Properties of the response interface: </li>
+        <ul>
+            <li>Ok: checks to see if the response was successful</li>
+            <li>Headers: contains any headers associated with the responde</li>
+            <li>url: a string containing the URL of responde</li>
+            <li>redirected: A boolean value that specifies if the response is the result of a redirect</li>
+            <li>type: A string value of 'basic', 'cors', 'error' or 'opaque'.</li>
+        </ul>
+        <li>The text() method takes a stream of text from the response, reads it to completion and then returns a
+            promise
+            that resolves to a USVSting object that can be treated as a string in JavaScript. <br>
+            Example: <br>
+            fetch(url) <br>
+            .then( response => response.text() ); // transforms the text stream into a JavaScript string <br>
+            .then( text => console.log(text) ) <br>
+            .catch( error => console.log('There was an error: ', error))
+        </li>
+        <li>JSON is probably the most common format for AJAX responses. The json() method is used to deal with these by
+            transforming a stream of JSON data into a promise that resolves to a JavaScript object.<br>
+            Example:<br>
+            fetch(url)<br>
+            .then( response => response.json() ); // transforms the JSON data into a JavaScript object<br>
+            .then( data => console.log(Object.entries(data)) )<br>
+            .catch( error => console.log('There was an error: ', error))
+        </li>
+
+        <li>
+            <h4>Request Interface</h4>
+        </li>
+        <li>Request objects are created using the Request() constructor, and include the following properties:</li>
+        <ul>
+            <li>url - The URL of the requested resource (required).</li>
+            <li>method - a string that specifies which HTTP method should be used for the request. By default, this is
+                'GET'.</li>
+            <li>headers - This is a Headers object that provides details of the request's headers.</li>
+            <li>mode - Allows you to specify if CORS is used or not. CORS is enabled by default.</li>
+            <li>cache - Allows you to specify how the request will use the browser's cache. </li>
+            <li>credentials - Lets you specify if cookies should be allowed with the request.</li>
+            <li>redirect - Specifies what to do if the response returns a redirect. There's a choice of three values:
+                'follow' (the redirect is followed), 'error' (an error is thrown) or 'manual' (the user has to click on
+                a
+                link to follow the redirect).
+            </li>
+        </ul>
+        <li>Example of a Request object: <br>
+            const request = new Request('https://example.com/data', { <br>
+            method: 'GET', <br>
+            mode: 'cors', <br>
+            redirect: 'follow', <br>
+            cache: 'no-cache'
+            });
+        </li>
+        <li>
+            <h4>Receive information</h4>
+        </li>
+        <li>This is an example of the book that I followed to understand it better:</li>
+        <li><a href="ajax.html">Example of Receveing Information</a></li>
+        <li>
+            <h4>Sending Information</h4>
+        </li>
+        <li>We can also use Ajax to send information. This can be a variety of formats, but is usually a JSON string.
+        </li>
+        <li>This is an example of the book that I followed to understand it better:</li>
+        <li><a href="todo.html">Example of Sending information</a></li>
+        <li> This example fakes the fact that the task has been saved to a database and the relevant data has been
+            returned. </li>
+        <li>Requests can retrieve data using a GET request, or send data using a POST request.</li>
+    </ul>
+
+    <a href="..\index.html">
+        <h3>&lt- Return</h3>
+    </a>
+</body>
+
+</html>

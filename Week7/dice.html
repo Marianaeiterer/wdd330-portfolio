@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Home Page</title>
+
+    <script>
+        const dice = {
+            sides: 6,
+            roll() {
+                return Math.floor(this.sides * Math.random()) + 1;
+            }
+        }
+
+        console.log('code before the promise');
+
+        const promise = new Promise((resolve, reject) => {
+            console.log('promise pending...');
+            const n = dice.roll();
+            setTimeout(() => {
+                (n > 1) ? resolve(n) : reject(n);
+            }, n * 200);
+        });
+
+        promise
+            .then(result => console.log(`I rolled a ${result}`))
+            .catch(result => console.log(`Drat! ... I rolled a ${result}`));
+
+        console.log('After the promise');
+    </script>
+</head>
+
+<body>
+    <p>Open the console to see the promise working</p>
+
+
+
+    <a href="index.html">
+        <h3>&lt- Return</h3>
+    </a>
+</body>
+
+</html>
