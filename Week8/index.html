@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Week 7</title>
+</head>
+
+<body>
+    <h1>Week 8 Notes and Team Activity</h1>
+
+    <h3>Team Activity:</h3>
+    <ul class="team_activity">
+        <li><a href="remoteAPI.html">Team Activity: Team 7</a></li>
+    </ul>
+
+    <h3>Notes from HTML5 and CSS3 for the Real world book</h3>
+    <h3>Notes from Chapter 8: CSS3 Transforms and Transitions:</h3>
+    <ul>
+        <li>
+            <h4>Transforms:</h4>
+        </li>
+        <li>Transforms property allows us to translate, rotate, scale, and/or skew any element on the page.</li>
+        <li>Transform functions allow us to manipulate the element's appearance. </li>
+        <li>The transforms are applied in the order provided.<br>
+            Example:<br>
+
+            .ad-ad2 h1:hover span {<br>
+            color: #484848;<br>
+            transform: rotate(10deg) translateX(40px) scale(1.5);
+            }<br>
+            The element will first be rotate 10 degrees, then translated (moved 40px along the rotated x axis) and after
+            the scale will be applied.
+        </li>
+        <li>
+            <h4>Translation:</h4>
+        </li>
+        <li>This function allows to move an element left, right, up, and down. </li>
+        <li>translate(x,y) function moves an element x from the left, and y from the top.</li>
+        <li>
+            <h4>Scaling:</h4>
+        </li>
+        <li>The scale(x,y) function scales an element by the defined factors.</li>
+        <li>If we give just one value, the same value will be use for x and y. </li>
+        <li>The center of the element stays the same when it scales, unless we want to change this, it's the default
+            behavior. </li>
+        <li>Scaling and translation have no impact on the document flow, which can cause some problems. If we use them
+            in an inline-block, the text around it won't be reflowed.</li>
+        <li>
+            <h4>Rotation:</h4>
+        </li>
+        <li>The rotate() function rotates an element around the point of origin by a specified angle value. </li>
+        <li>The angles are provided in degrees, usually. </li>
+        <li>
+            <h4>Skew:</h4>
+        </li>
+        <li>The skew function specifies a skew along the x and y axes. </li>
+        <li>If we just pass one parameter, the skew will only happen in the x axis. </li>
+        <li>The transform-origin property can be used to change the center of the element. </li>
+        <li>
+            <h4>Transitions:</h4>
+        </li>
+        <li>Transitions allow the values of CSS properties to change over time, essentially providing simple animations.
+        </li>
+        <li>Steps to create a simple transition in CSS: </li>
+        <ol>
+            <li>Declare the original state of the element in the default style declaration.</li>
+            <li>Declare the final state of your transitioned element.</li>
+            <li>Include the transition functions in your default style declaration using the transition properties,
+                including: transition-property, transition-duration, transition-timing-function, and transition-delay.
+            </li>
+        </ol>
+        <li>The transition-property property defines the CSS properties of the element that should be transitioned. The
+            default value is all properties, “all”</li>
+        <li>Use the all keyword just if you really want to transition every property, if not, separate the properties by
+            a comma.<br>
+            Example:<br>
+            .foo {<br>
+            transition-property: transform, color;
+            }
+        </li>
+        <li>The transition-duration property sets how long the transition will take: the duration of time it takes to go
+            from the default state to the transitioned state
+        </li>
+        <li>It also returns to the original position with the same duration </li>
+        <li>The transition-timing-function property allows us to control the pace of the transition. </li>
+
+        <li>The transition-delay property introduces a delay before the transition begins. The default is 0. </li>
+        <li>The transition property is shorthand for the transition-property, transition-duration,
+            transition-timing-function, and transition-delay </li>
+        <li>Example: <br>
+            .ad-ad2 h1 span { <br>
+            transition-property: transform; <br>
+            transition-duration: 0.2s; <br>
+            transition-timing-function: ease-out; <br>
+            transition-delay: 50ms;
+            } <br>
+            Can be write as: <br>
+            .ad-ad2 h1 span { <br>
+            transition: transform 0.2s ease-out 50ms;
+            }
+        </li>
+        <li>
+            <h4>Animations:</h4>
+        </li>
+        <li>CSS animations allow us to control each step of an animation via keyframes.</li>
+        <li>A keyframe is a snapshot that defines a starting or end point of any smooth transition</li>
+        <li>With transition we can just control the start and end point, but with animations we can any number of
+            keyframes in between, to guide the animation. </li>
+        <li>To animate an element in CSS, you first create a named animation, then attach it to an element in that
+            elemen's property declaration block. </li>
+        <li>Creating an animation: </li>
+        <li>Use the @keyframe rule followed by the name of the animation</li>
+        <li>Instead of a traditional selector, we use a percentage value, or a comma-separated list of percentage
+            values. There are two keyterms― from and to ―which evaluate to 0% and 100% respectively. These values
+            specify how far along the animation each keyframe is located.</li>
+        <li>Inside each keyframe include the property to be animated with the values.<br>
+            Example:<br>
+            @keyframes moveRight {<br>
+            from {<br>
+            transform: translateX(-50%);<br>
+            }<br>
+            to {<br>
+            transform: translateX(50%);<br>
+            }<br>
+            }<br>
+
+            @keyframes appearDisappear {<br>
+            0%, 100% {<br>
+            opacity: 0;<br>
+            }<br>
+            20%, 80% {<br>
+            opacity: 1;<br>
+            }<br>
+            }<br>
+
+            @keyframes bgMove {<br>
+            100% {<br>
+            background-position: 120% 0;<br>
+            }<br>
+            }
+        </li>
+        <li>After defining the animation, we need to apply it to the element. </li>
+        <li>The animation properties will help us to apply the animation to the element we want. </li>
+        <li>Animation-name is used to attach an animation to the element. It's required to start the animation.</li>
+        <li>Animation-duration defines the duration an animation takes to complete one iteration</li>
+        <li>The animation-timing-function determines how the animation will progress over its duration. </li>
+        <li>The animation-iteration-count property lets we define how many times the animation will play through. The
+            default value is 1. </li>
+        <li>The animation normally iterates from 0% to 100% and then jumps back to 0% when starts a new iteration. The
+            animation-direction property allows us to change this behavior. </li>
+        <li>The animation-delay property is used to define how long to wait before begins the animation.</li>
+        <li>The animation-fill-mode property defines what happens before the first animation iteration begins and after
+            the last animation iteration concludes.</li>
+
+        <li>The animation-play-state property defines whether the animation is running or paused</li>
+        <li>The animation property is a shorthand for all these animation properties. </li>
+    </ul>
+
+    <h3>Notes from Chapter 12: Canvas, SVG, and Drag and Drop:</h3>
+    <ul>
+        <li>
+            <h4>Canvas:</h4>
+        </li>
+        <li> With Canvas API we can draw anything we can imagine. This can improve the performance of our
+            websites by avoiding the need to download images. This is making through JavaScript</li>
+        <li>The first step is to add a canvas element in the page and grab the element in the JavaScript. </li>
+        <li>We also need to define a width and a height </li>
+        <li>Example of Canvas:<br>
+            &ltcanvas id="myCanvas" class="myCanvas" width="200" height="200"><br>
+            Sorry! Your browser doesn't support Canvas.<br>
+            &lt/canvas>
+        </li>
+        <li>All drawing on the canvas happens via the Canvas JavaScript API</li>
+        <li>We need to set up the context. The context is where our drawing is rendered. It will be 2d - two dimensional
+            context. </li>
+        <li>strokeStyle and fillStyle properties are set on a context object, and both take one of three values: a
+            string representing a color, a CanvasGradient object, or a CanvasPattern object. </li>
+        <li>Example of a rectangle with a red border and blue fill:<br>
+            var canvas = document.getElementById("myCanvas"); <br>
+            var context = canvas.getContext("2d");<br>
+            context.strokeStyle = "red";<br>
+            context.fillStyle = "blue";<br>
+        </li>
+        <li>After this we start to draw. To draw a rectangle, we can use fillRect and strokeRect methods. These
+            methods will get the X and Y coordinates where to begin drawing and the width and height. </li>
+        <li>We can draw other shapes with paths. </li>
+        <li>Paths create a blueprint for your lines, arcs, and shapes, but paths are invisible until you give them a
+            stroke</li>
+        <li>With more complex shapes, we need to take three steps: layout the path, stroke the path, and fill the path.
+        </li>
+        <li>Example of drawing a circle: <br>
+            Method beginPath(), which resets the default path for you to begin drawing a new shape <br>
+            Method arc(x, y, radius, startAngle, endAngle, anticlockwise). <br>
+            Our next step is to close the path, as we've now finished drawing our circle. <br>
+            function drawCircle(canvas) { <br>
+            var context = canvas.getContext("2d"); <br>
+            context.beginPath(); <br>
+            context.arc(100, 100, 50, 0, Math.PI*2, true); <br>
+            context.closePath();
+            }
+        </li>
+        <li>We have the path created, but to see it we need to stroke it using strokeStyle<br>
+            function drawCircle(canvas) {<br>
+            var context = canvas.getContext("2d");<br>
+            context.beginPath();<br>
+            context.arc(100, 100, 50, 0, Math.PI*2, true);<br>
+            context.closePath();<br>
+            context.strokeStyle = "red";<br>
+            context.fillStyle = "blue";<br>
+            context.lineWidth = 3;<br>
+            context.fill(); <br>
+            context.stroke();
+            }
+        </li>
+        <li>The vantage to redraw an image element onto a canvas is to be able to manipulate that image by using the
+            getImageData method. </li>
+        <li>Example of turning a canvas image into black and white:<br>
+            function manipulateImage() {<br>
+            var canvas = document.getElementById("demo7");<br>
+            var context = canvas.getContext("2d");<br>
+            var image = document.getElementById("secondImage");<br>
+            context.drawImage(image, 60, 60);<br>
+
+            var imageData = context.getImageData(0, 0, 200, 200);<br>
+
+            for (var i = 0; i &lt imageData.data.length; i +=4) { <br>
+            var red=imageData.data[i]; <br>
+            var green=imageData.data[i + 1]; <br>
+            var blue=imageData.data[i + 2]; <br>
+            var grayscale=red * 0.3 + green * 0.59 + blue * 0.11;<br>
+            imageData.data[i]=grayscale; <br>
+            imageData.data[i + 1]=grayscale; <br>
+            imageData.data[i + 2]=grayscale; <br>
+            }<br>
+            context.putImageData(imageData, 0, 0);
+            }
+        </li>
+        <li>
+            <h4>SVG</h4>
+        </li>
+        <li>SVG stands for Scalable Vector Graphics, a specific file format that allows you to describe vector graphics
+            using XML. Vector images preserve their quality even as you blow them up or shrink them down. </li>
+        <li>Example of a circle in SVG: <br>
+            &ltsvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400"><br>
+            &ltcircle cx="50" cy="50" r="25" fill="red" /> <br>
+            &lt/svg>
+        </li>
+        <li>viewBox attribute: defines the starting location, width, and height of the SVG image.</li>
+        <li>The circle element defines a circle, with cx and cy the X and Y coordinates of the center of the circle</li>
+        <li>Fill defines the fill style</li>
+        <li>Drawing a rectangle:<br>
+            &ltsvg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 400 400"><br>
+            &ltdesc>Drawing a rectangle&lt/desc><br>
+            &ltrect x="10" y="10" width="100" height="100" <br>
+            fill="blue" stroke="red" stroke-width="3" /> <br>
+
+            &lt/svg>
+
+        </li>
+        <li>The &ltdesc> tag allows us to provide a description for the image.</li>
+        <li>To complex images the code starts to look hard to understand. Instead of writing it by hand we can use an
+            image editor </li>
+        <li>
+            <h4>Canvas versus SVG:</h4>
+        </li>
+        <li>Canvas allows pixel manipulation. A downside is that it operates in immediate mode, this means that if you
+            ever want to add more to the canvas, you're unable to simply add to what's already there.</li>
+        <li>Canvas does allow you to save the images you create to a PNG or JPEG file.</li>
+        <li>There's also no access to what's drawn on the canvas via the DOM, making it faster than SVG. </li>
+        <li>What you draw to SVG is accessible via the DOM, because its mode is retained mode, meaning that the
+            structure of the image is preserved in the XML document that describes it.</li>
+        <li>You can't manipulate the SVG images like you can with canvas.</li>
+    </ul>
+
+    <a href="..\index.html">
+        <h3>&lt- Return</h3>
+    </a>
+</body>
+
+</html>
