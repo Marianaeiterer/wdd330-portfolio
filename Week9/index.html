@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Week 9</title>
+</head>
+
+<body>
+    <h1>Week 9 Notes and Team Activity</h1>
+
+    <h3>Team Activity:</h3>
+    <ul class="team_activity">
+        <li><a target="_blank" href="javascript30-drums/index-START.html">Team Activity: Team 7</a></li>
+    </ul>
+
+    <h3>Notes from Chapter 9: The Window Object:</h3>
+    <ul>
+        <li>Every environment in JavaScript has a global object. In a browser the global object is the window object.
+        </li>
+        <li> The Browser Object Model (or BOM for short) is a collection of properties and methods that contain
+            information about the browser and computer screen. </li>
+        <li>A way of assigning the variable global to the global object: <br>
+            Example: <br>
+            // from within the global scope <br>
+            const global = this;
+        </li>
+        <li>Global variables can be accessed in all parts of the program. Global variables are actual properties of a
+            global object.<br>
+            Example:<br>
+            x = 6; // global variable created<br>
+            &lt&lt 6<br>
+
+            window.x // same variable can be accessed as a property of the window object<br>
+            &lt&lt 6<br>
+
+            // both variables are exactly the same<br>
+            window.x === x;<br>
+            &lt&lt true
+        </li>
+        <li>Some functions we've already met, such as parseInt() and isNaN(), are actually methods of the global object,
+            which in a browser environment makes them methods of the window object</li>
+        <li>The window object has properties and methods that provide information about the user's browser. </li>
+        <li>The window.location property is an object that contains information about the URL of the current page. It
+            contains a number of properties that provide information about different fragments of the URL.</li>
+        <li>Some properties:</li>
+        <ul>
+            <li>href property returns the full URL <br>
+                Example:<br>
+                window.location.href <br>
+                &lt&lt https://www.sitepoint.com/premium/books/javascript-novice-to-ninja </li>
+            <li>protocol property returns a string of the protocol being used</li>
+            <li>host return a string of the domain of the current URL and port number</li>
+            <li>hotname returns a string of the domain of the current URL</li>
+            <li>pathname returns a string of the path that follows the domain </li>
+        </ul>
+        <li>windon.open() method is used to open a new window. The first parameter is the URL, the second is the window
+            title and the third is a list of attributes. <br>
+            Example:<br>
+            const popup = window.open('https://sitepoint.com','SitePoint','width=400,height=400,resizable=yes');
+        </li>
+        <li>The window.screen object contains information about the screen the browser is displayed on.</li>
+        <li>To find the height and width of the screen in pixels we use: <br>
+            window.screen.height <br>
+            &lt&lt 1024 <br>
+
+            window.screen.width <br>
+            &lt&lt 1280 <br>
+        </li>
+        <li>The availHeight and availWidth can be used to find the height and width of the screen, excluding any
+            operating system menus. <br>
+            Example:<br>
+            window.screen.availWidth <br>
+            &lt&lt 1280 <br>
+            window.screen.availHeight <br>
+            &lt&lt 995 </li>
+        <li>The screen object is more useful in mobile devices. </li>
+        <li>Each window object contains a document object. This object has properties and methods that deal with the
+            page that has been loaded into the window.</li>
+        <li>Cookies are small files that are saved locally on a user's computer. This is a way of storing information
+            that can be retrieved between requests. </li>
+        <li>A restriction of cookies is that they can only be read by a web page from the same domain that set them.
+            This is to stop sites being able to access information about users, such as other sites they have visited.
+        </li>
+        <li>Creating a Cookie: <br>
+            Example:<br>
+            document.cookie = 'name=Superman'; <br>
+            &lt&lt "name=Superman"
+        </li>
+        <li>To append a new cookie, we just need to assign another cookie. It won't overwrite the last one, it will just
+            append it. <br>
+            Example: <br>
+            document.cookie = 'hero=true'; <br>
+            &lt&lt "hero=true" <br>
+            document.cookie='city=Metropolis' ; <br>
+            &lt&lt "city=Metropolis" </li>
+        <li>A cookie's value can be changed by reassigning it to document.cookie using the same name but a different
+            value. </li>
+        <li>document.cookie allow us to see the current contents of a cookie jar</li>
+        <li>The window.setTimeout() method accepts a callback to a function as its first parameter and a number of
+            milliseconds as its second parameter. </li>
+        <li>This method returns an integer which is an ID used to reference to that particular method. </li>
+        <li>It can also cancel the timeout using the window.clearTimeout() method.<br>
+            Example:<br>
+            window.clearTimeout(5);<br>
+            &lt&lt undefined
+        </li>
+        <li>The window.setInterval() method will repeatedly invoke the callback function after every given number of
+            milliseconds. <br>
+            Example:<br>
+            function chant(){ console.log('Beetlejuice'); }<br>
+            const summon = window.setInterval(chant,1000);<br>
+            &lt&lt 6 </li>
+        <li>This will show the message “Beetlejuice” in the console every second (1,000 milliseconds).</li>
+        <li>To stop it, we use: window.clearInterval() method and the variable repeat as an argument<br>
+            Example:<br>
+            window.clearInterval(summon);
+        </li>
+        <li>The setTimeOut() and setInterval() methods can be used to animate elements on a web page.</li>
+        <li>This was the only way to achieve animation using JavaScript until the window.requestAnimationFrame() method
+            was developed.</li>
+        <li>This method works similar to the window. setInterval() method, but it has a number of improvements. </li>
+        <li> Some improvements are making the most of the browser's built-in graphics-handling capabilities, and not
+            running
+            the animation when the tab is inactive, resulting in a much smoother performance.</li>
+        <li>Example of Animation using setInterval() and requestAnimationFrame() methods: <a target="_blank"
+                href="exercise.html">Example</a></li>
+        <li>We notice that the first square using setInterval() is slower than the second square using the
+            requestAnimationFrame() method. </li>
+    </ul>
+
+    <h3>Notes from Chapter 14: HTML5 APIs:</h3>
+    <ul>
+        <li>The "data-" attribute is a way of embedding data in a web page using custom attributes that are ignored by
+            the browser</li>
+        <li>The names of these attributes can be decided by the developer, but they must use the following format:</li>
+        <ul>
+            <li>Start with "data-".</li>
+            <li>Contain only lowercase letters, numbers, hyphens, dots, colons or underscores.</li>
+            <li>Include an optional string value.</li>
+        </ul>
+        <li>Examples: <br>
+            data-powers = 'flight superSpeed'<br>
+            data-rating = '5' <br>
+            data-dropdown <br>
+            data-user = 'DAZ' <br>
+            data-max-length = '32'
+        </li>
+        <li>Each element has a dataset property that can be used to access any data- attributes it contains.<br>
+            Example:<br>
+            &ltdiv id='hero' data-powers='flight superSpeed'><br>
+            Superman<br>
+            &lt/div><br>
+            const superman = document.getElementById('hero');<br>
+            const powers = superman.dataset.powers;<br>
+            &lt&lt 'flight superSpeed' </li>
+        <li>The HTML5 specification contains a number of APIs that help to gain access to hardware, such as cameras,
+            batteries, geolocation, and the graphics card.</li>
+        <li>
+            <h4>HTML5 Web Storage</h4>
+        </li>
+        <li>The Web Storage API provides a key-value store on the client's computer that is similar to using cookies but
+            has fewer restrictions, more storage capacity, and is generally easier to use. </li>
+        <li>The Web Storage API has some crucial differences with cookies:</li>
+        <ul>
+            <li>Information stored is not shared with the server on every request.</li>
+            <li>Information is available in multiple windows of the browser (but only if the domain is the same).</li>
+            <li>Storage capacity limit is much larger than the 4KB limit for cookies </li>
+            <li>Any data stored does not automatically expire as it does with cookies. This potentially makes cookies a
+                better choice for something like showing a popup once a day.</li>
+        </ul>
+        <li>If a browser supports the Web Storage API, the window object will have a property called localStorage, which
+            is a native object with a number of properties and methods used to store data. <br>
+            localStorage.setItem('name', 'Walter White'); // saves a value locally<br>
+            localStorage.getItem('name');<br>
+            &lt&lt "Walter White" // get the value stored in the name </li>
+        <li>Rather than using the getItem() and setItem() methods, assignment can be used instead.<br>
+            localStorage.name = 'Heisenberg'; <br>
+
+            console.log(localStorage.name); <br>
+            &lt&lt "Heisenberg";<br>
+            localStorage.removeItem('name'); // removes an entry from local storage<br>
+            delete localStorage.name; // we also can remove something using the delete operator<br>
+            localStorage.clear(); // completely removes everything stored in local storage
+        </li>
+        <li>
+            <h4>Geolocation</h4>
+        </li>
+        <li>The Geolocation API is used to obtain the geographical position of the device.</li>
+        <li>This means it can be used to find the user's exact location, then link to nearby places or measure the speed
+            at which the user is moving. </li>
+        <li>
+            <h4>Web Workers</h4>
+        </li>
+        <li>JavaScript is a single-threaded language, meaning that only one process can run at one time. Web workers
+            allow processes to be run in the background, adding support for concurrency in JavaScript <br>
+            Example:<br>
+            const worker = new Worker('task.js');
+        </li>
+        <li>This function takes the name of another JavaScript file as an argument. </li>
+        <li>If this file exists, it will be downloaded asynchronously. The worker will only start when the file has
+            finished downloading. </li>
+        <li>If the file doesn't exist, an error is thrown.</li>
+        <li>When a worker has completed its task, it can be stopped using the terminate() method from within the main
+            script or from inside the worker script.<br>
+            worker.terminate(); //from the main script<br>
+            self.close(); //from the worker script
+        </li>
+        <li>Example of worker being used to calculate the factors of a number: <a target="_blank" href="factors.html">Example</a></li>
+        <li>Without the worker, if the number was too large the page would freeze and we wouldn't be able to do anything
+            else, like change the background while waiting the answer. Using worker though, allows us to calculate the
+            factors without freeze the page. </li>
+        <li>
+            <h4>Websockets</h4>
+        </li>
+        <li>Websocket is a new protocol that allows two-way communication with a server - also known as push messaging.
+            This means that a connection is kept open and responses are 'pushed' to the client as soon as they are
+            received.</li>
+        <li>Example of using a Websocket: <a target="_blank" href="websocket.html">Example</a></li>
+        <li>
+            <h4>Notifications</h4>
+        </li>
+        <li>The Notification API allows you to show messages using the system's notifications. This is usually a popup
+            in the corner of the screen, but it changes depending on the operating system. </li>
+        <li>
+            <h4>Multimedia</h4>
+        </li>
+        <li>HTML5 introduced the &ltaudio> and &ltvideo> tags used to insert audio and video clips into a web page. It
+            also introduced a Media API for controlling the playback of the clips using JavaScript. <br>
+            Example of adding a video: <br>
+            &ltvideo src='http://movie.mp4' controls> <br>
+            Your browser does not support the video element. <br>
+            &lt/video>
+        </li>
+        <li>The content inside the audio and video tags will only display if the browser does not support them. </li>
+        <li>The controls attribute can be added without any value and will display the browser's native controls, such
+            as play, pause, and volume control.</li>
+        <li>Audio and video elements have a number of properties and methods to control the playback of the clip. Some
+            of them are:</li>
+        <ul>
+            <li>play() method will start the clip playing from its current position </li>
+            <li>pause() method will pause the clip at its current position </li>
+            <li>volume property is a number that can be used to set the audio volume </li>
+            <li>muted property is a boolean value that can be used to mute the audio </li>
+            <li>currentTime property is a number value that can be used to jump to another part of the clip </li>
+            <li>playbackRate property is used to fast-forward or rewind the clip by changing its value. </li>
+            <li>loop property is a boolean value that can be set to true to make the clip repeat in a loop </li>
+            <li>duration property can be used to see how long the clip lasts </li>
+        </ul>
+    </ul>
+
+
+
+
+    <a href="..\index.html">
+        <h3>&lt- Return</h3>
+    </a>
+</body>
+
+</html>
