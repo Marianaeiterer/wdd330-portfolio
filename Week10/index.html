@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Week 10</title>
+</head>
+
+<body>
+    <h1>Week 10 Notes and Team Activity</h1>
+
+    <h3>Team Activity:</h3>
+    <ul class="team_activity">
+        <li><a href="TeamActivity/quake.html">Team Activity: Team 7</a></li>
+    </ul>
+
+    <h3>Notes from MDN: Validating forms:</h3>
+    <ul>
+        <li>Validation done in the browser is called client-side validation</li>
+        <li>Validation done on the server is called server-side validation.</li>
+        <li>Client-side form validation helps ensure that the data is being sent to the server in the correct format
+            and the form controls are filled out. </li>
+        <li>This helps the client to have a good experience. Send incorrect data to the server can cause a delay. </li>
+        <li>Even with client-side validation is important to still have the server-side validation. </li>
+        <li>Three main reasons why validating the data:</li>
+        <ul>
+            <li>To get the right data, in the right format: the applications won't work properly if users' data is
+                stored in the wrong format, is incorrect, or is omitted altogether.</li>
+            <li>To protect the users' data: Forcing users to enter secure passwords makes it easier to protect their
+                account information.</li>
+            <li>
+                To protect ourselves: There are many ways that malicious users can misuse unprotected forms to damage
+                the application
+            </li>
+        </ul>
+        <li>
+            <h4>
+                Built-in form validation
+            </h4>
+        </li>
+        <li>It uses HTML5 features for form validation. It uses validation attributes on form elements. Some of them
+            are:</li>
+        <ul>
+            <li>required: Specifies whether a form field needs to be filled in before the form can be submitted.</li>
+            <li>minlength and maxlength: Specifies the minimum and maximum length of textual data (strings)</li>
+            <li>min and max: Specifies the minimum and maximum values of numerical input types</li>
+            <li>type: Specifies whether the data needs to be a number, an email address, or some other specific preset
+                type.</li>
+            <li> pattern: Specifies a regular expression that defines a pattern the entered data needs to follow.</li>
+            </li>
+        </ul>
+        <li>If the data is corrected the form will be submitted, if the data is incorrected the browser will block the
+            submission of the form. </li>
+        <li>If the information is correct the element matches the '':valid' CSS pseudo-class, and we can style it. </li>
+        <li>If the information is incorrect the element matches the ':invalid' CSS pseudo-class, and we can style it.
+        </li>
+        <li>
+            For good users experiences it's important to indicate which fields are required. It's also good to only
+            require data that we actually need.
+        </li>
+        <li>A field is invalid if it has a value and that value has fewer characters than the 'minlength' value or more
+            than the 'maxlength' value.</li>
+        <li>To a better experience is also provide character count feedback, so the user can edit the text to fit in
+            the specific length value. </li>
+
+        <li>Examples using built-in form validation: </li>
+        <ul>
+            <li><a href="fruit-start.html" target="_blank">Simple example</a></li>
+            <li><a href="fullExample.html" target="_blank">Full Example</a></li>
+        </ul>
+        <li>
+            <h4>Validating Forms Using Javascript</h4>
+        </li>
+        <li>This validation is completely customized. </li>
+        <li>The Constraint Validation API has a set of methods and properties available in these elements:</li>
+        <ul>
+            <li>HTMLButtonElement (represents a &ltbutton> element)</li>
+            <li>HTMLFieldSetElement (represents a &ltfieldset> element)</li>
+            <li>HTMLInputElement (represents an &ltinput> element)</li>
+            <li>HTMLOutputElement (represents an &ltoutput> element)</li>
+            <li>HTMLSelectElement (represents a &ltselect> element)</li>
+            <li>HTMLTextAreaElement (represents a &lttextarea> element)</li>
+        </ul>
+        <li>Some properties are:</li>
+        <ul>
+            <li>validationMessage: Returns a localized message describing the validation constraints that the control
+                doesn't satisfy (if any). </li>
+            <li>validity: Returns a ValidityState object that contains several properties describing the validity state
+                of the element. The more common ones:</li>
+            <ul>
+                <li>patternMismatch: Returns true if the value does not match the specified pattern, and false if it
+                    does
+                    match.</li>
+                <li>tooLong: Returns true if the value is longer than the maximum length specified by the maxlength
+                    attribute, or false if it is shorter than or equal to the maximum. </li>
+                <li>tooShort: Returns true if the value is shorter than the minimum length specified by the minlength
+                    attribute, or false if it is greater than or equal to the minimum. </li>
+                <li>rangeOverflow: Returns true if the value is greater than the maximum specified by the max attribute,
+                    or
+                    false if it is less than or equal to the maximum.</li>
+                <li>rangeUnderflow: Returns true if the value is less than the minimum specified by the min attribute,
+                    or
+                    false if it is greater than or equal to the minimum. </li>
+                <li>typeMismatch: Returns true if the value is not in the required syntax (when type is email or url),
+                    or
+                    false if the syntax is correct. </li>
+                <li>valid: Returns true if the element meets all its validation constraints, and is therefore considered
+                    to
+                    be valid, or false if it fails any constraint. </li>
+                <li>valueMissing: Returns true if the element has a required attribute, but no value, or false
+                    otherwise.
+                </li>
+            </ul>
+            <li>willValidate: Returns true if the element will be validated when the form is submitted; false otherwise.
+            </li>
+
+        </ul>
+        <li>Example of customized message using the constraint validation API: <a href="JSValidation.html"
+                target="_blank">Example</a></li>
+        <li>The novalidate attribute turns off the browser's automatic validation. It stops the form showing its own
+            error messages and allow us to display the custom error messages. </li>
+        <li>
+            The 'aria-live' attribute make sure that the custom error message will be presented to everyone, including
+            it being read out to screen reader users.
+        </li>
+        <li>Remember to help the user correct the data provided:</li>
+        <ul>
+            <li>Display explicit error messages.</li>
+            <li>Be permissive about the input format.</li>
+            <li>Point out exactly where the error occurs, especially on large forms.</li>
+        </ul>
+    </ul>
+
+    <h3>Notes from MDN: Using Fetch:</h3>
+    <ul>
+        <li>
+            The Promise returned from fetch() won't reject on HTTP error status even if the response is an HTTP 404 or
+            500. Instead, as soon as the server responds with headers, the Promise will resolve normally, and it will
+            only reject on network failure or if anything prevented the request from completing.
+        </li>
+        <li>Unless fetch() is called with the credentials option set to include, fetch():</li>
+        <ul>
+            <li>won't send cookies in cross-origin requests</li>
+            <li>won't set any cookies sent back in cross-origin responses</li>
+        </ul>
+        <li>Fetch() returns a promise that resolves with a Response object. The Response object is a representation of
+            the entire HTTP response. To extract the JSON body content we use the json() method. </li>
+        <li>The chunks that are read from a response are not broken neatly at line boundaries and are Uint8Arrays, not
+            strings.</li>
+        <li>To process a text file line by line we need to handle the interaction. </li>
+        <li>We can check if the fetch() was successful by checking if the Response.ok property value is true. </li>
+        <li>Instead of passing a path into the fetch() we can create a request object using the Request() constructor
+            and pass it into the fetch() <br>
+            Example:<br>
+            const myHeaders = new Headers();<br>
+
+            const myRequest = new Request('flowers.jpg', {<br>
+            method: 'GET',<br>
+            headers: myHeaders,<br>
+            mode: 'cors',<br>
+            cache: 'default',
+            });<br>
+
+            fetch(myRequest) <br>
+            .then(response => response.blob())<br>
+            .then(myBlob => {<br>
+            myImage.src = URL.createObjectURL(myBlob);
+            });
+        </li>
+        <li>Both requests and responses may contain body data. A body is an instance of any of the following types:</li>
+        <ul>
+            <li>ArrayBuffer </li>
+            <li>TypedArray (Uint8Array and friends) </li>
+            <li>DataView </li>
+            <li>Blob </li>
+            <li>File </li>
+            <li>String, or a string literal </li>
+            <li>URLSearchParams </li>
+            <li>FormData</li>
+        </ul>
+        <li>The Request and Response interfaces share the following methods to extract a body. These all return a
+            promise that is eventually resolved with the actual content.</li>
+        <ul>
+            <li>Request.arrayBuffer() / Response.arrayBuffer()</li>
+            <li>Request.blob() / Response.blob()</li>
+            <li>Request.formData() / Response.formData()</li>
+            <li>Request.json() / Response.json()</li>
+            <li>Request.text() / Response.text()</li>
+        </ul>
+        <li>To check if the Fetch API is supported we can do: <br>
+            if (window.fetch) {<br>
+              // run my fetch request here<br>
+            } else {<br>
+              // do something with XMLHttpRequest?<br>
+            }
+        </li>
+
+    </ul>
+
+    <a href="..\index.html">
+        <h3>&lt- Return</h3>
+    </a>
+</body>
+
+</html>
