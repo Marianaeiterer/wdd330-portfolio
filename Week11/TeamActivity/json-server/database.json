@@ -1,0 +1,177 @@
+{
+  "users": [
+    {
+      "email": "user1@email.com",
+      "password": "user1",
+      "firstname": "Test",
+      "lastname": "User",
+      "age": 20,
+      "id": 1
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "email": "user2@email.com",
+      "password": "user2"
+    },
+    {
+      "email": "user3@email.com",
+      "password": "$2a$10$gFzBsVMWTJAB3H81DDDS3.iGM4lVCBh9SMlfAipzyHnd/X17mk9y6",
+      "id": 3
+    }
+  ],
+  "posts": [
+    {
+      "title": "First Post!",
+      "content": "I can't believe I got first post.",
+      "userId": 1,
+      "id": 4
+    },
+    {
+      "title": "First Post!",
+      "content": "Woot! I never get first post!",
+      "userId": 2,
+      "id": 5
+    },
+    {
+      "title": "First Post!",
+      "content": "Did I really get first?",
+      "userId": "3",
+      "createdAt": 1558736105449,
+      "id": 8
+    },
+    {
+      "title": "post 5",
+      "content": "post 5",
+      "userId": "user1@email.com",
+      "createdAt": 1559159434900,
+      "id": 11
+    },
+    {
+      "title": "post 6",
+      "content": "post 6",
+      "userId": "user1@email.com",
+      "createdAt": 1559159640285,
+      "id": 12
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656648902283,
+      "id": 13
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656648975945,
+      "id": 14
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656649401786,
+      "id": 15
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656649490602,
+      "id": 16
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656649597663,
+      "id": 17
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656649612218,
+      "id": 18
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656649728846,
+      "id": 19
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656649744337,
+      "id": 20
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656649770355,
+      "id": 21
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656649799559,
+      "id": 22
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656650026498,
+      "id": 23
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656650095364,
+      "id": 24
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656650243410,
+      "id": 25
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656650280571,
+      "id": 26
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656650348248,
+      "id": 27
+    },
+    {
+      "email": "user1@email.com",
+      "password": "",
+      "userId": "user1@email.com",
+      "createdAt": 1656650370437,
+      "id": 28
+    },
+    {
+      "title": "post5",
+      "content": "post5",
+      "userId": "user1@email.com",
+      "createdAt": 1656651697823,
+      "id": 29
+    }
+  ]
+}
