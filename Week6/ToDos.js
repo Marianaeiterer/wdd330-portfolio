@@ -50,7 +50,7 @@ export default class ToDos {
 
         if (todo) {
             todo.complete = !todo.complete;
-            writeToLS(key, todoList);
+            writeToLS(this.key, todoList);
             renderTodoList(todoList, this, this.listElement, true);
 
         }
@@ -58,10 +58,8 @@ export default class ToDos {
     }
     removeTodo(key) {
         let todo = this.findTodos(key);
-
         if (todo) {
-            deleteToDo(key);
-            console.log(todoList);
+            deleteToDo(key, this.key);
             renderTodoList(todoList, this, this.listElement, true);
         }
 
@@ -151,6 +149,7 @@ function saveTodo(task, key) {
 
     todoList.push(newToDo);
     writeToLS(key, todoList);
+    console.log(localStorage);
 
 }
 
@@ -161,12 +160,15 @@ function filterToDo(key, complete = true) {
 
 }
 
-function deleteToDo(key) {
+function deleteToDo(id, key) {
     //save the toDos that has a different key from the one passed
-    let newList = todoList.filter(item => item.id != key);
-    todoList = newList;
-    taksUpdated(); //update the tasks left
+    let index = todoList.findIndex(object => {
+        return id == object.id;
+    });
+    todoList.splice(index, 1);
     writeToLS(key, todoList);
+    taksUpdated(); //update the tasks left
+    
 }
 
 
@@ -175,7 +177,8 @@ function getTodos(key) {
     if (todoList === null) {
         todoList = readFromLS(key) || [];
     }
-
+    console.log(todoList);
+    console.log(localStorage);
     return todoList;
 }
 

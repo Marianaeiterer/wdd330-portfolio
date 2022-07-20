@@ -93,13 +93,33 @@ nav a:hover {
     text-align: center;
     text-decoration: none;
     margin-bottom: 1em;
+}
 
+.hidden {
+    opacity: 0;
+    display: none;
+}
+
+#error{
+  padding: 10px !important;
+  border-radius: 0 !important;
+  position: relative; 
+  display: inline-block !important;
+  margin-top: 10px;
+  color: red;
+  font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.added{
+    background-color: rgb(75, 230, 75);
 }
 
 .pokemonList{
     background-color:#CC6310;
     margin-top: 2em;
     justify-content: center;
+    min-height: 700px;
 }
 
 .pokemonList h3{
@@ -164,7 +184,6 @@ nav a:hover {
     flex-direction: column;
     align-items: center;
     font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
-
     font-weight: 600;
     justify-content: center;
  
@@ -173,7 +192,7 @@ nav a:hover {
 .card{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 40%;
+    width: 70%;
     font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
     margin: auto;
     padding: 1em;
@@ -213,5 +232,60 @@ img{
 #type{
     grid-row: 1/2;
     grid-column: 2/3;
+}
+
+#outputTeam{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.pokemonCard{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%;
+    font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+    margin: 1em;
+    padding: 1em;
+    font-weight: 600;
+    color:#CC6310;
+    font-size: 1.2em;
+}
+
+.text{
+    font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+    padding: 2em;
+    font-weight: 600;
+    color:#CC6310;
+    font-size: 1em;
+    background-color:#F5E97E;
+
+}
+.pokemonCard img{
+    max-width: 100%;
+    margin: auto;
+}
+
+.pokemonCard h4{
+    font-size: 1.5em;
+    text-align: center;
+    color: #DF807E;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    padding: 1em;
+}
+
+.remove{
+    width: 100px;
+    height: 50px;
+    background: #CC6310;
+    border: 0;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    text-align: center;
+    
 }
 
